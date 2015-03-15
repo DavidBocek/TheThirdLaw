@@ -23,9 +23,9 @@ public class StarfieldEffects : MonoBehaviour {
 			t += Time.smoothDeltaTime/rate;
 			t %= 2;
 			if (t <= 1){
-				cur.a = Mathf.LerpAngle(orig.a, orig.a/3f, t);
+				cur.a = Mathf.LerpAngle(orig.a, orig.a/4f, t);
 			} else {
-				cur.a = Mathf.LerpAngle(orig.a/3f, orig.a, t-1);
+				cur.a = Mathf.LerpAngle(orig.a/4f, orig.a, t-1);
 			}
 			rdr.color = cur;
 			yield return null;
