@@ -7,6 +7,9 @@ public class DirectionForceMove : MonoBehaviour {
 	public float maxSpeed;
 	public float lerpFractionPerUpdate;
 
+	public ParticleSystem thrustEmitter;
+	public ParticleSystem deathEmitter;
+
 	private Rigidbody2D rb;
 	private Vector2 force;
 	private Vector3 inputDir;
@@ -27,7 +30,7 @@ public class DirectionForceMove : MonoBehaviour {
 			transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(Vector3.forward, inputDir), lerpFractionPerUpdate);
 		}
 
-		//transform.RotateAround(Vector3.forward, degPerSec*Time.deltaTime);
+		thrustEmitter.enableEmission = inputDir.sqrMagnitude > .1f;
 	}
 
 	void FixedUpdate(){
