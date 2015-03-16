@@ -53,15 +53,21 @@ public class FireProjectile : MonoBehaviour {
 		chargingSound.Play();
 		float originalRate = chargingParticles.emissionRate;
 		for (float t=0f; t<1f; t+=Time.deltaTime/chargeTime){
+			//don't shoot from the grave
+			if (health.isDead){
+				break;
+			}
 			//charge particles and noise
 			chargingParticles.emissionRate = Mathf.Lerp(originalRate, chargingParticleRate, t);
 			yield return null;
 		}
 		chargingParticles.emissionRate = originalRate;
 		chargingParticles.Stop(true);
-		shotParticles.Play();
-		AudioSource.PlayClipAtPoint(shotSound, playerManager.PlayerObj.transform.position);
-		Fire();
+		if (!health.isDead){
+			shotParticles.Play();
+			AudioSource.PlayClipAtPoint(shotSound, playerManager.PlayerObj.transform.position);
+			Fire();
+		}
 		canMove = true;
 		yield return new WaitForSeconds(cooldown);
 		canFire = true;

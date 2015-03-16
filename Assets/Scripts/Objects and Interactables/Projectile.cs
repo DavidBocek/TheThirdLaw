@@ -6,9 +6,10 @@ public class Projectile : MonoBehaviour {
 	public float force, lifetime;
 
 	private int playerOwner;
-
 	private Vector3 movementDir;
+
 	private Rigidbody2D rb;
+	private ScoreboardMgr scoreboard;
 
 	// Use this for initialization
 	void Start () {
@@ -31,6 +32,7 @@ public class Projectile : MonoBehaviour {
 			PlayerManager playerManager = health.gameObject.GetComponent<PlayerManager>();
 			if (playerManager != null && playerManager.playerNumber != playerOwner){
 				health.OnImpact();
+				scoreboard.AddPoint(playerOwner);
 				Destroy(gameObject);
 			}
 		}
@@ -38,6 +40,7 @@ public class Projectile : MonoBehaviour {
 
 	public void OnFire(Vector3 dir, int owner){
 		rb = GetComponent<Rigidbody2D>();
+		scoreboard = GameObject.FindWithTag("Scoreboard").GetComponent<ScoreboardMgr>();
 		rb.AddForce((new Vector2(dir.x, dir.y)).normalized * force, ForceMode2D.Impulse);
 		playerOwner = owner;
 		Destroy(gameObject, lifetime);

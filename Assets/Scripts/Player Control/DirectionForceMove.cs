@@ -44,6 +44,7 @@ public class DirectionForceMove : MonoBehaviour {
 		}
 
 		thrustEmitter.enableEmission = inputDir.sqrMagnitude > .1f;
+		thrustEmitter.GetComponent<TrailRenderer>().enabled = !health.isDead;
 	}
 
 	void FixedUpdate(){
