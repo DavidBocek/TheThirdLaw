@@ -70,17 +70,21 @@ public class GameMgr : MonoBehaviour {
 			Time.timeScale = Mathf.Lerp(1f, .125f, t/2f);
 			yield return null;
 		}
-		Image screen = GameObject.FindWithTag("BlackScreen").GetComponent<Image>();
+		/*Image screen = GameObject.FindWithTag("BlackScreen").GetComponent<Image>();
 		Color c = screen.color;
 		for (float t=0; t<1f; t+=Time.unscaledDeltaTime){
 			c.a = Mathf.Lerp(0f, 1f, t);
 			screen.color = c;
 			yield return null;
-		}
+		}*/
 		Time.timeScale = 1f;
 		yield return new WaitForSeconds(1f);
-		c.a = 0f;
-		screen.material.color = c;
-		Application.LoadLevel(3);	//results screen
+		//c.a = 0f;
+		//screen.material.color = c;
+		//Application.LoadLevel(3);	//results screen
+
+		//for testing
+		Debug.Break();
+		//========
 	}
 }

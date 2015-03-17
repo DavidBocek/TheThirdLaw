@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DirectionForceMove : MonoBehaviour {
+public class RotationalMove : MonoBehaviour {
 
 	//multiplayer logic
 	private PlayerManager playerManager;
@@ -9,24 +9,25 @@ public class DirectionForceMove : MonoBehaviour {
 	//movement vars
 	public float thrustForce;
 	public float maxSpeed;
-	public float lerpFractionPerUpdate;
+	public float turnRate;
 
-	//cache references
+	//cache refs
 	public ParticleSystem thrustEmitter;
 	private Health health;
 	private FireProjectile fireProj;
 
+
 	//cache vars
 	private Vector2 force;
 	private Vector3 inputDir;
-
+	
+	
 	// Use this for initialization
 	void Start () {
 		playerManager = GetComponent<PlayerManager>();
 		health = GetComponent<Health>();
 		fireProj = GetComponent<FireProjectile>();
 
-		force = new Vector2();
 		inputDir = new Vector3();
 	}
 	
@@ -38,12 +39,11 @@ public class DirectionForceMove : MonoBehaviour {
 
 		inputDir.x = playerManager.HorizontalAxis;
 		inputDir.y = playerManager.VerticalAxis;
-
-		if (inputDir.sqrMagnitude != 0){
-			transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(Vector3.forward, inputDir), lerpFractionPerUpdate);
-		}
+		transform.Rotate(0,0,-inputDir.x*turnRate*Time.deltaTime);
 
 		thrustEmitter.enableEmission = inputDir.sqrMagnitude > .1f;
+		thrustEmitter.GetComponent<TrailRenderer>().enabled = !health.isDead;
+		
 	}
 
 	void FixedUpdate(){
@@ -51,17 +51,14 @@ public class DirectionForceMove : MonoBehaviour {
 			playerManager.rb.velocity = Vector3.zero;
 			return;
 		}
-
+		
 		//compute force based on player input
-		force.x = playerManager.HorizontalAxis;
-		force.y = playerManager.VerticalAxis;
-		
-		if (force.x != 0f && force.y != 0f){
-			force.Normalize();
-		}
-		
-		force *= fireProj.canMove ? thrustForce : 0f;	//stop thrusting while charging shot
+		Vector3 force3d = transform.TransformDirection(new Vector3(0f, playerManager.VerticalAxis, 0f));
+		force.x = force3d.x;
+		force.y = force3d.y;
 
+		force *= fireProj.canMove ? thrustForce : 0f;	//stop thrusting while charging shot
+		
 		playerManager.rb.AddForce(force, ForceMode2D.Force);
 		//max speed check
 		if (playerManager.rb.velocity.sqrMagnitude > maxSpeed*maxSpeed){
@@ -78,7 +75,7 @@ public class DirectionForceMove : MonoBehaviour {
 		if (b != null){
 			bounciness = b.bounciness;
 		}
-
+		
 		Vector2 normal = coll.contacts[0].normal;
 		playerManager.rb.AddForce(normal * coll.relativeVelocity.magnitude * bounciness, ForceMode2D.Impulse);
 	}

@@ -22,6 +22,7 @@ public class Health : MonoBehaviour {
 		isDead = true;
 		deathEmitter.Play();
 		GetComponent<DirectionForceMove>().thrustEmitter.enableEmission = false;
+		GetComponent<DirectionForceMove>().thrustEmitter.GetComponent<TrailRenderer>().enabled = false;
 		AudioSource.PlayClipAtPoint(deathClip, transform.position);
 		foreach (SpriteRenderer sr in GetComponentsInChildren<SpriteRenderer>()){
 			sr.enabled = false;
@@ -38,6 +39,7 @@ public class Health : MonoBehaviour {
 		isDead = false;
 		isInvulnerable = true;
 		GetComponent<DirectionForceMove>().thrustEmitter.enableEmission = true;
+		GetComponent<DirectionForceMove>().thrustEmitter.GetComponent<TrailRenderer>().enabled = true;
 		foreach (Collider coll in GetComponentsInChildren<Collider>(true)){
 			coll.enabled = true;
 		}
