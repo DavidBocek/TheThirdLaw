@@ -48,6 +48,7 @@ public class GameMgr : MonoBehaviour {
 		PersistantData.mostRecentScores = GameObject.FindWithTag("Scoreboard").GetComponent<ScoreboardMgr>().GetScores();
 		foreach (GameObject player in activePlayers){
 			player.GetComponent<DirectionForceMove>().enabled = false;
+			player.GetComponent<RotationalMove>().enabled = false;
 		}
 		StartCoroutine(EndGameEffects());
 	}
