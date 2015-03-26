@@ -23,7 +23,7 @@ public static class PersistantData {
 							{"Purple", 4},
 							{"Pink", 5}
 	};
-	public static int[] indexToPlayer = new int[4];
+	public static int[] indexToPlayer = {-1,-1,-1,-1};
 
 	public static List<int> playersToSpawn = new List<int>(); /*TEST new List<int>{0, 1};*/
 

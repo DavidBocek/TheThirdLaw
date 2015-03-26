@@ -72,7 +72,7 @@ public class CharacterSelectionMenu : MonoBehaviour {
 				return false;
 			}
 		}
-		return count > 2;
+		return count >= 2;
 	}
 
 	private IEnumerator ChangeSelection(int index, bool left){

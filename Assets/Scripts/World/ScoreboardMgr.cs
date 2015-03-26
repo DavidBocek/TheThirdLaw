@@ -14,14 +14,23 @@ public class ScoreboardMgr : MonoBehaviour {
 
 	void Start(){
 		gameMgr = GameObject.FindWithTag("GameMgr").GetComponent<GameMgr>();
+		foreach (Text t in scoresTexts){
+			t.gameObject.SetActive(false);
+		}
 	}
 
 	public void Initialize(int playerNum1, int playerNum2, int playerNum3 = -1, int playerNum4 = -1){
-		scoresDict.Add(playerNum1, 0);
-		scoresTexts[0].color = PersistantData.colors[playerNum1];
+		if (playerNum1 >= 0){
+			scoresDict.Add(playerNum1, 0);
+			scoresTexts[0].gameObject.SetActive(true);
+			scoresTexts[0].color = PersistantData.colors[playerNum1];
+		}
 
-		scoresDict.Add(playerNum2, 0);
-		scoresTexts[1].color = PersistantData.colors[playerNum2];
+		if (playerNum2 >= 0){
+			scoresDict.Add(playerNum2, 0);
+			scoresTexts[1].gameObject.SetActive(true);
+			scoresTexts[1].color = PersistantData.colors[playerNum2];
+		}
 
 		if (playerNum3 >= 0){
 			scoresDict.Add(playerNum3, 0);
@@ -41,7 +50,10 @@ public class ScoreboardMgr : MonoBehaviour {
 	}
 
 	void Update(){
-		for (int i=0; i<scoresDict.Count; i++){
+		for (int i=0; i<4; i++){
+			if (PersistantData.indexToPlayer[i] == -1){
+				continue;
+			}
 			Text txt = scoresTexts[i];
 			txt.text = ""+scoresDict[PersistantData.indexToPlayer[i]];
 		}

@@ -17,6 +17,9 @@ public class GameMgr : MonoBehaviour {
 		int p1 = -1; int p2 = -1; int p3 = -1; int p4 = -1;
 		for (int i=0; i<PersistantData.playersToSpawn.Count; i++){
 			//blech this is ugly, sorry
+			if (PersistantData.playersToSpawn[i] == -1){
+				continue;
+			}
 			switch (i){
 			case 0:
 				p1 = PersistantData.playersToSpawn[i];
@@ -38,7 +41,7 @@ public class GameMgr : MonoBehaviour {
 
 			GameObject player = (GameObject) Instantiate(Resources.Load("Player"+PersistantData.playersToSpawn[i]),
 			                                             GameObject.Find("SpawnPoint"+i).transform.position, GameObject.Find("SpawnPoint"+i).transform.rotation);
-			player.GetComponent<PlayerManager>().playerNumber = i;
+
 			activePlayers.Add(player);
 		}
 		GameObject.FindWithTag("Scoreboard").GetComponent<ScoreboardMgr>().Initialize(p1, p2, p3, p4);
