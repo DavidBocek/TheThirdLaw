@@ -443,7 +443,7 @@ MonoBehaviour:
   reboundForce: 10
   cooldown: 2
   muzzleLocation: {fileID: 472372}
-  projectile: {fileID: 145196, guid: ee0abdd055db96a4d8a432515425b4ca, type: 2}
+  projectile: {fileID: 172582, guid: a54d34b1c1093374da8b1e7b5c34f055, type: 2}
   canFire: 1
   canMove: 1
   chargingParticleRate: 200
