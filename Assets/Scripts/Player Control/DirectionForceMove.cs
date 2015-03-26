@@ -35,7 +35,6 @@ public class DirectionForceMove : MonoBehaviour {
 		if (health.isDead){
 			return;
 		}
-
 		inputDir.x = playerManager.HorizontalAxis;
 		inputDir.y = playerManager.VerticalAxis;
 
@@ -55,10 +54,19 @@ public class DirectionForceMove : MonoBehaviour {
 		//compute force based on player input
 		force.x = playerManager.HorizontalAxis;
 		force.y = playerManager.VerticalAxis;
-		
-		if (force.x != 0f && force.y != 0f){
-			force.Normalize();
+
+		if(force.magnitude < .2f)
+		{
+			force = new Vector2(0,0);
 		}
+
+		Debug.Log (force);
+
+		/*if (force.x != 0f && force.y != 0f){
+			force.Normalize();
+		}*/
+
+
 		
 		force *= fireProj.canMove ? thrustForce : 0f;	//stop thrusting while charging shot
 

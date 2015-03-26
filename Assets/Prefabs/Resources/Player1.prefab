@@ -465,6 +465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNumber: 1
+  useJoystick: 0
 --- !u!114 &11475810
 MonoBehaviour:
   m_ObjectHideFlags: 1
