@@ -25,7 +25,6 @@ public static class PersistantData {
 	};
 	public static int[] indexToPlayer = new int[4];
 
-
 	public static List<int> playersToSpawn = /*new List<int>(); TEST*/ new List<int>{0, 1};
 
 	public static Dictionary<int, int> mostRecentScores = new Dictionary<int, int>();
