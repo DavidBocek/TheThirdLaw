@@ -72,7 +72,7 @@ public class DirectionForceMove : MonoBehaviour {
 
 		playerManager.rb.AddForce(force, ForceMode2D.Force);
 		//max speed check
-		if (playerManager.rb.velocity.sqrMagnitude > maxSpeed*maxSpeed){
+		if (force.sqrMagnitude > 0f && playerManager.rb.velocity.sqrMagnitude > maxSpeed*maxSpeed){
 			Vector2 temp = new Vector2(playerManager.rb.velocity.x, playerManager.rb.velocity.y);
 			playerManager.rb.velocity = temp.normalized*maxSpeed;
 		}
