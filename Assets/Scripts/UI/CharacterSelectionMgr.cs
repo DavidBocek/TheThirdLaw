@@ -54,7 +54,7 @@ public class CharacterSelectionMgr : MonoBehaviour {
 	}
 
 	public void Block(int index){
-		selectImages[index].GetComponent<Image>().color = new Color(.5f,.5f,.5f,.7f);
+		selectImages[index].GetComponent<Image>().color = new Color(.5f,.5f,.5f,.4f);
 	}
 
 	public void Swipe(int index, int oldCharIndex, int newCharIndex, bool swipeLeft, bool canSelect){

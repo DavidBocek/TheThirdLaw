@@ -60,11 +60,11 @@ public class DirectionForceMove : MonoBehaviour {
 			force = new Vector2(0,0);
 		}
 
-		Debug.Log (force);
-
-		/*if (force.x != 0f && force.y != 0f){
-			force.Normalize();
-		}*/
+		if (!playerManager.useJoystick){
+			if (force.x != 0f && force.y != 0f){
+				force.Normalize();
+			}
+		}
 
 
 		

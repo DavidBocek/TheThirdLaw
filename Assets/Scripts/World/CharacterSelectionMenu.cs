@@ -7,6 +7,8 @@ public class CharacterSelectionMenu : MonoBehaviour {
 
 	//the model and controller of the MVC for the character selection screen
 
+	public bool useJoystick = false;
+
 	public CharacterSelectionMgr selectionMgr;
 
 	float timeSinceStart = 0f;
@@ -22,7 +24,7 @@ public class CharacterSelectionMenu : MonoBehaviour {
 	void Update(){
 		if (starting) return;
 		for (int i=0; i<4; i++){
-			float h = Input.GetAxisRaw("Player"+i+"-Horizontal");
+			float h = useJoystick ? Input.GetAxisRaw("Player"+i+"-HorizontalJoy") : Input.GetAxisRaw("Player"+i+"-Horizontal");
 			if (h!=0 && !inputLagLocks[i] && !inputLockedIn[i] && curSelections[i] != -1){
 					StartCoroutine(ChangeSelection(i, h<0f));
 			}
@@ -47,8 +49,8 @@ public class CharacterSelectionMenu : MonoBehaviour {
 						inputLockedIn[i] = true;
 						selectionMgr.Lock(i);
 						for (int j=0; j<4; j++){
-							if (curSelections[j] == curSelections[i]){
-								selectionMgr.Block(i);
+							if (curSelections[j] == curSelections[i] && i != j){
+								selectionMgr.Block(j);
 							}
 						}
 					}
@@ -80,17 +82,22 @@ public class CharacterSelectionMenu : MonoBehaviour {
 		selection += left ? -1 : 1;
 		if (selection < 0) selection = 6;
 		selection %= 7;
-		bool canSelect = CharInUse(selection);
+		bool canSelect = !CharInUse(selection);
 
 		selectionMgr.Swipe(index, curSelections[index], selection, left, canSelect);
 		curSelections[index] = selection;
 
-		yield return new WaitForSeconds(.75f);
+		yield return new WaitForSeconds(.35f);
 		inputLagLocks[index] = false;
 	}
 
 	private IEnumerator BeginPlay(){
 		starting = true;
+		//set up logic for what players to spawn in gameplay screen
+		foreach (int ship in curSelections){
+			PersistantData.playersToSpawn.Add(ship);
+		}
+		//fade out and load
 		Image blackScreen = GameObject.FindWithTag("BlackScreen").GetComponent<Image>();
 		Color c = blackScreen.color;
 		for (float t=0; t<1f; t+=Time.deltaTime){

@@ -37,8 +37,8 @@ public class GameMgr : MonoBehaviour {
 			}
 
 			GameObject player = (GameObject) Instantiate(Resources.Load("Player"+PersistantData.playersToSpawn[i]),
-			                                             GameObject.Find("SpawnPoint"+i).transform.position, Quaternion.Euler(Vector3.up));
-
+			                                             GameObject.Find("SpawnPoint"+i).transform.position, GameObject.Find("SpawnPoint"+i).transform.rotation);
+			player.GetComponent<PlayerManager>().playerNumber = i;
 			activePlayers.Add(player);
 		}
 		GameObject.FindWithTag("Scoreboard").GetComponent<ScoreboardMgr>().Initialize(p1, p2, p3, p4);

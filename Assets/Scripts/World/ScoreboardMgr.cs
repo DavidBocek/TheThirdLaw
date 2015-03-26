@@ -21,19 +21,16 @@ public class ScoreboardMgr : MonoBehaviour {
 		scoresTexts[0].color = PersistantData.colors[playerNum1];
 
 		scoresDict.Add(playerNum2, 0);
-		PersistantData.indexToPlayer[1] = playerNum2;
 		scoresTexts[1].color = PersistantData.colors[playerNum2];
 
 		if (playerNum3 >= 0){
 			scoresDict.Add(playerNum3, 0);
-			PersistantData.indexToPlayer[2] = playerNum3;
 			scoresTexts[2].gameObject.SetActive(true);
 			scoresTexts[2].color = PersistantData.colors[playerNum3];
 		}
 
 		if (playerNum4 >= 0){
 			scoresDict.Add(playerNum4, 0);
-			PersistantData.indexToPlayer[3] = playerNum4;
 			scoresTexts[3].gameObject.SetActive(true);
 			scoresTexts[3].color = PersistantData.colors[playerNum4];
 		}

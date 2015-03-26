@@ -3,9 +3,11 @@ using System.Collections;
 
 public class PlayerManager : MonoBehaviour {
 
+	//joystick toggle
+	public bool useJoystick = false;
+
 	//identifier
 	public int playerNumber = 0;
-	public bool useJoystick = false;
 
 	//indexing
 	private int playerIndex = -1;
