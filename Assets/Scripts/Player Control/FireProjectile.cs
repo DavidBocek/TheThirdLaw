@@ -14,6 +14,8 @@ public class FireProjectile : MonoBehaviour {
 	public bool canFire = true;
 	[HideInInspector]
 	public bool canMove = true;
+	[HideInInspector]
+	public bool isRebounding = false;
 
 	//particles
 	public float chargingParticleRate;
@@ -44,6 +46,7 @@ public class FireProjectile : MonoBehaviour {
 		GameObject proj = (GameObject) Instantiate(projectile, muzzleLocation.position, muzzleLocation.rotation);
 		proj.GetComponent<Projectile>().OnFire(muzzleLocation.up, playerManager.playerNumber);
 		playerManager.rb.AddForce(-muzzleLocation.up.normalized * reboundForce, ForceMode2D.Impulse);
+		StartCoroutine(Rebound());
 	}
 
 	private IEnumerator FireEffects(){
@@ -71,5 +74,11 @@ public class FireProjectile : MonoBehaviour {
 		canMove = true;
 		yield return new WaitForSeconds(cooldown);
 		canFire = true;
+	}
+
+	private IEnumerator Rebound(){
+		isRebounding = true;
+		yield return new WaitForSeconds(1.5f);
+		isRebounding = false;
 	}
 }

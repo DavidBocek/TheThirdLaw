@@ -57,6 +57,7 @@ public class GameMgr : MonoBehaviour {
 	}
 	
 	private IEnumerator StartGameEffects(){
+		yield return new WaitForSeconds(3f);
 		Time.timeScale = 0f;
 		Text startTimer = GameObject.FindWithTag("StartTimerText").GetComponent<Text>();
 		for (float t=5f; t>0f; t-=Time.unscaledDeltaTime){
