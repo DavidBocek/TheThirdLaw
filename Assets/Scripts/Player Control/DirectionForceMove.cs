@@ -46,7 +46,7 @@ public class DirectionForceMove : MonoBehaviour {
 			transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(Vector3.forward, inputDir), lerpFractionPerUpdate);
 		}
 
-		thrustEmitter.enableEmission = inputDir.magnitude > .5f;
+		thrustEmitter.enableEmission = inputDir.magnitude >= TRANSLATE_DEAD_ZONE;
 	}
 
 	void FixedUpdate(){
