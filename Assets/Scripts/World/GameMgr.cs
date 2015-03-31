@@ -58,6 +58,10 @@ public class GameMgr : MonoBehaviour {
 	
 	private IEnumerator StartGameEffects(){
 		Time.timeScale = 0f;
+		foreach (GameObject player in activePlayers){
+			player.GetComponent<DirectionForceMove>().enabled = false;
+			player.GetComponent<RotationalMove>().enabled = false;
+		}
 		Text startTimer = GameObject.FindWithTag("StartTimerText").GetComponent<Text>();
 		for (float t=5f; t>0f; t-=Time.unscaledDeltaTime){
 			startTimer.text = "" + Mathf.CeilToInt(t);
@@ -66,6 +70,10 @@ public class GameMgr : MonoBehaviour {
 		Time.timeScale = 1f;
 		startTimer.text = "GO!";
 		yield return new WaitForSeconds(1f);
+		foreach (GameObject player in activePlayers){
+			player.GetComponent<DirectionForceMove>().enabled = true;
+			player.GetComponent<RotationalMove>().enabled = true;
+		}
 		startTimer.gameObject.SetActive(false);
 	}
 
