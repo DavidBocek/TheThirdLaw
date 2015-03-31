@@ -28,11 +28,13 @@ public class Projectile : MonoBehaviour {
 		//destroy logic
 		Health health = coll.collider.GetComponent<Health>();
 		if (health != null){
-			//make sure you can't destroy yourself
+			//make sure you can't destroy yourself and that the player isn't invincible
 			PlayerManager playerManager = health.gameObject.GetComponent<PlayerManager>();
 			if (playerManager != null && playerManager.playerNumber != playerOwner){
-				health.OnImpact();
-				scoreboard.AddPoint(playerOwner);
+				if (!health.isInvulnerable){
+					health.OnImpact();
+					scoreboard.AddPoint(playerOwner);
+				}
 				Destroy(gameObject);
 			}
 		}

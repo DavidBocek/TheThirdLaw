@@ -9,6 +9,7 @@ public class ScoreboardMgr : MonoBehaviour {
 	public Text[] scoresTexts; 
 
 	private Dictionary<int, int> scoresDict = new Dictionary<int, int>();
+	private List<int> keyBuf = new List<int>();
 
 	private GameMgr gameMgr;
 
@@ -22,30 +23,34 @@ public class ScoreboardMgr : MonoBehaviour {
 	public void Initialize(int playerNum1, int playerNum2, int playerNum3 = -1, int playerNum4 = -1){
 		if (playerNum1 >= 0){
 			scoresDict.Add(playerNum1, 0);
+			keyBuf.Add(playerNum1);
 			scoresTexts[0].gameObject.SetActive(true);
 			scoresTexts[0].color = PersistantData.colors[playerNum1];
 		}
 
 		if (playerNum2 >= 0){
 			scoresDict.Add(playerNum2, 0);
+			keyBuf.Add(playerNum2);
 			scoresTexts[1].gameObject.SetActive(true);
 			scoresTexts[1].color = PersistantData.colors[playerNum2];
 		}
 
 		if (playerNum3 >= 0){
 			scoresDict.Add(playerNum3, 0);
+			keyBuf.Add(playerNum3);
 			scoresTexts[2].gameObject.SetActive(true);
 			scoresTexts[2].color = PersistantData.colors[playerNum3];
 		}
 
 		if (playerNum4 >= 0){
 			scoresDict.Add(playerNum4, 0);
+			keyBuf.Add(playerNum4);
 			scoresTexts[3].gameObject.SetActive(true);
 			scoresTexts[3].color = PersistantData.colors[playerNum4];
 		}
 
-		foreach (KeyValuePair<int,int> kvp in scoresDict){
-			scoresDict[kvp.Key] = 0;
+		foreach (int key in keyBuf){
+			scoresDict[key] = 0;
 		}
 	}
 

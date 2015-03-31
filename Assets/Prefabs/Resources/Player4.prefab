@@ -425,7 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chargeTime: 1
-  reboundForce: 20
+  reboundForce: 25
   cooldown: 2
   muzzleLocation: {fileID: 448564}
   projectile: {fileID: 153720, guid: e98f53928e6d8124a842ec86c81ce973, type: 2}
