@@ -38,7 +38,7 @@ public class DirectionForceMove : MonoBehaviour {
 		inputDir.x = playerManager.HorizontalAxis;
 		inputDir.y = playerManager.VerticalAxis;
 
-		if (inputDir.sqrMagnitude != 0){
+		if (inputDir.magnitude > .2f){
 			transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(Vector3.forward, inputDir), lerpFractionPerUpdate);
 		}
 
@@ -55,7 +55,9 @@ public class DirectionForceMove : MonoBehaviour {
 		force.x = playerManager.HorizontalAxis;
 		force.y = playerManager.VerticalAxis;
 
-		if(force.magnitude < .2f)
+		Debug.Log(force);
+
+		if(force.magnitude < .5f)
 		{
 			force = new Vector2(0,0);
 		}
