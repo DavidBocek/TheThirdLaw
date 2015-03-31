@@ -3,6 +3,10 @@ using System.Collections;
 
 public class DirectionForceMove : MonoBehaviour {
 
+	//controller vars
+	private const float TRANSLATE_DEAD_ZONE = .5f;
+	private const float ROTATE_DEAD_ZONE = .25f;
+
 	//multiplayer logic
 	private PlayerManager playerManager;
 
@@ -38,11 +42,11 @@ public class DirectionForceMove : MonoBehaviour {
 		inputDir.x = playerManager.HorizontalAxis;
 		inputDir.y = playerManager.VerticalAxis;
 
-		if (inputDir.sqrMagnitude != 0){
+		if (inputDir.magnitude > ROTATE_DEAD_ZONE){
 			transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(Vector3.forward, inputDir), lerpFractionPerUpdate);
 		}
 
-		thrustEmitter.enableEmission = inputDir.sqrMagnitude > .1f;
+		thrustEmitter.enableEmission = inputDir.magnitude > .5f;
 	}
 
 	void FixedUpdate(){
@@ -55,7 +59,7 @@ public class DirectionForceMove : MonoBehaviour {
 		force.x = playerManager.HorizontalAxis;
 		force.y = playerManager.VerticalAxis;
 
-		if(force.magnitude < .2f)
+		if(force.magnitude < TRANSLATE_DEAD_ZONE)
 		{
 			force = new Vector2(0,0);
 		}
