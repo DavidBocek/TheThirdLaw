@@ -11,3 +11,5 @@ EditorBuildSettings:
     path: Assets/ship_selection.unity
   - enabled: 1
     path: Assets/scene1.unity
+  - enabled: 1
+    path: Assets/results_screen.unity

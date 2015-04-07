@@ -93,10 +93,10 @@ public class GameMgr : MonoBehaviour {
 		yield return new WaitForSeconds(1f);
 		//c.a = 0f;
 		//screen.material.color = c;
-		//Application.LoadLevel(3);	//results screen
+		Application.LoadLevel(3);	//results screen
 
 		//for testing
-		Debug.Break();
+		// Debug.Break();
 		//========
 	}
 }

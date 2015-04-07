@@ -1564,6 +1564,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11460776, guid: 33b9b717e62a8ff46b9df3f3ba49dffb, type: 2}
+      propertyPath: useJoystick
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33b9b717e62a8ff46b9df3f3ba49dffb, type: 2}
   m_IsPrefabParent: 0
