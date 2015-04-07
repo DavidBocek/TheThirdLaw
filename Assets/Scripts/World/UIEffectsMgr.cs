@@ -27,13 +27,13 @@ public class UIEffectsMgr : MonoBehaviour {
 				yield return null;
 			}
 			Time.timeScale = .2f;
+			Time.timeScale = 1f;
 			isSlowing = false;
 		} else {
 			yield return new WaitForSeconds(1f);
 		}
 		health.OnImpact();
 		Camera.main.GetComponent<ObjectShake>().StartShake();
-		Time.timeScale = 1f;
 		isSlowing = false;
 	}
 
