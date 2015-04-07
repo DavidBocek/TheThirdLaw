@@ -10,10 +10,16 @@ public class Projectile : MonoBehaviour {
 
 	private Rigidbody2D rb;
 	private ScoreboardMgr scoreboard;
+	private UIEffectsMgr UIEffects;
 
-	// Use this for initialization
-	void Start () {
-
+	//initialize here
+	public void OnFire(Vector3 dir, int owner){
+		rb = GetComponent<Rigidbody2D>();
+		scoreboard = GameObject.FindWithTag("Scoreboard").GetComponent<ScoreboardMgr>();
+		rb.AddForce((new Vector2(dir.x, dir.y)).normalized * force, ForceMode2D.Impulse);
+		playerOwner = owner;
+		UIEffects = GameObject.FindWithTag("UIEffectsMgr").GetComponent<UIEffectsMgr>();
+		Destroy(gameObject, lifetime);
 	}
 
 	void OnCollisionEnter2D(Collision2D coll){
@@ -32,19 +38,10 @@ public class Projectile : MonoBehaviour {
 			PlayerManager playerManager = health.gameObject.GetComponent<PlayerManager>();
 			if (playerManager != null && playerManager.playerNumber != playerOwner){
 				if (!health.isInvulnerable){
-					health.OnImpact();
-					scoreboard.AddPoint(playerOwner);
+					UIEffects.PlayImpactEffects(health, gameObject, scoreboard, playerOwner);
 				}
-				Destroy(gameObject);
 			}
 		}
 	}
 
-	public void OnFire(Vector3 dir, int owner){
-		rb = GetComponent<Rigidbody2D>();
-		scoreboard = GameObject.FindWithTag("Scoreboard").GetComponent<ScoreboardMgr>();
-		rb.AddForce((new Vector2(dir.x, dir.y)).normalized * force, ForceMode2D.Impulse);
-		playerOwner = owner;
-		Destroy(gameObject, lifetime);
-	}
 }

@@ -67,7 +67,7 @@ public class GameMgr : MonoBehaviour {
 		}
 		Time.timeScale = 1f;
 		startTimer.text = "GO!";
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(.5f);
 		foreach (GameObject player in activePlayers){
 			player.GetComponent<DirectionForceMove>().enabled = true;
 		}

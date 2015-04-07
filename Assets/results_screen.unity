@@ -2449,33 +2449,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3771fa71745664e4c8df4e838b8fb1c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipPreviewSprites:
-  - {fileID: 21300000, guid: a52a11e1f48852743b7418bb6401516d, type: 3}
-  - {fileID: 21300000, guid: 6145f518d2c5c5d4391bf040fc04af93, type: 3}
-  - {fileID: 21300000, guid: b23ccb46714972d46badde634db9168e, type: 3}
-  - {fileID: 21300000, guid: 6e4de05d49022c14a980fb2a10803e53, type: 3}
-  - {fileID: 21300000, guid: 6678ae2bfa699d24fac4fccc48f3fb5a, type: 3}
-  - {fileID: 21300000, guid: 4dc6344f4f7460a4195377a7a102753a, type: 3}
-  selectImages:
-  - {fileID: 1167303094}
-  - {fileID: 67671557}
-  - {fileID: 1625636284}
-  - {fileID: 1449370844}
-  placeTexts:
-  - {fileID: 97358944}
-  - {fileID: 1345002572}
-  - {fileID: 188552413}
-  - {fileID: 520864279}
-  scoreTexts:
-  - {fileID: 1313049648}
-  - {fileID: 1829693774}
-  - {fileID: 1297967378}
-  - {fileID: 1139382751}
-  bgpList:
-  - {fileID: 874722319}
-  - {fileID: 1248290007}
-  - {fileID: 788924632}
-  - {fileID: 1043692804}
 --- !u!1 &1297967378
 GameObject:
   m_ObjectHideFlags: 0

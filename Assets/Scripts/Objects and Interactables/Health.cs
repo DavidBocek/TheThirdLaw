@@ -4,6 +4,7 @@ using System.Collections;
 public class Health : MonoBehaviour {
 
 	public float respawnTime, invulnerableTime;
+	public ParticleSystem preDeathEmitter;
 	public ParticleSystem deathEmitter;
 	public AudioClip deathClip;
 
@@ -18,9 +19,26 @@ public class Health : MonoBehaviour {
 		}
 	}
 
+	public void AnimatePreDeath(){
+		StartCoroutine(ShipPreDeathColor());
+		preDeathEmitter.Play();
+	}
+
+	private IEnumerator ShipPreDeathColor(){
+		SpriteRenderer r = GetComponentInChildren<SpriteRenderer>();
+		Color initialColor = r.color;
+		Color c = initialColor;
+		c.a = 0f;
+		for (float t=0f; t<=1f; t+=Time.unscaledDeltaTime){
+			r.color = Color.Lerp(initialColor, c, t);
+			yield return null;
+		}
+		r.color = initialColor;
+	}
+
 	private IEnumerator Hit(){
 		isDead = true;
-		deathEmitter.Play();
+		deathEmitter.Play(true);
 		GetComponent<DirectionForceMove>().thrustEmitter.enableEmission = false;
 		GetComponent<DirectionForceMove>().thrustEmitter.GetComponent<TrailRenderer>().enabled = false;
 		AudioSource.PlayClipAtPoint(deathClip, transform.position);

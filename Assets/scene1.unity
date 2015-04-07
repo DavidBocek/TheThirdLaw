@@ -87,6 +87,47 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &35794115
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 35794116}
+  - 114: {fileID: 35794117}
+  m_Layer: 0
+  m_Name: UI Effects Manager
+  m_TagString: UIEffectsMgr
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &35794116
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 35794115}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+--- !u!114 &35794117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 35794115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a0c2b4974964d4488cdc9d11c41f585, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plusOneText: {fileID: 145420, guid: dba7b5b8e29cbfd4c867f2f80890e545, type: 2}
+  slowTimeHitClip: {fileID: 8300000, guid: 7f5814abc9ac8244fb1e20c05e40ad39, type: 3}
 --- !u!1 &38346779
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,6 +558,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 19850786, guid: d3fac4ec93cdaab4194e3c7ed100fc38, type: 2}
+      propertyPath: CollisionModule.plane0
+      value: 
+      objectReference: {fileID: 894772894}
+    - target: {fileID: 19850786, guid: d3fac4ec93cdaab4194e3c7ed100fc38, type: 2}
+      propertyPath: CollisionModule.plane1
+      value: 
+      objectReference: {fileID: 1855733638}
+    - target: {fileID: 19850786, guid: d3fac4ec93cdaab4194e3c7ed100fc38, type: 2}
+      propertyPath: CollisionModule.plane2
+      value: 
+      objectReference: {fileID: 1610039920}
+    - target: {fileID: 19850786, guid: d3fac4ec93cdaab4194e3c7ed100fc38, type: 2}
+      propertyPath: CollisionModule.plane3
+      value: 
+      objectReference: {fileID: 72434790}
     - target: {fileID: 101754, guid: d3fac4ec93cdaab4194e3c7ed100fc38, type: 2}
       propertyPath: m_IsActive
       value: 0
@@ -893,6 +950,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 19887778, guid: 9b9673f2d199f7e499892638f0a5e8d8, type: 2}
+      propertyPath: CollisionModule.plane0
+      value: 
+      objectReference: {fileID: 894772894}
+    - target: {fileID: 19887778, guid: 9b9673f2d199f7e499892638f0a5e8d8, type: 2}
+      propertyPath: CollisionModule.plane1
+      value: 
+      objectReference: {fileID: 1855733638}
+    - target: {fileID: 19887778, guid: 9b9673f2d199f7e499892638f0a5e8d8, type: 2}
+      propertyPath: CollisionModule.plane2
+      value: 
+      objectReference: {fileID: 1610039920}
+    - target: {fileID: 19887778, guid: 9b9673f2d199f7e499892638f0a5e8d8, type: 2}
+      propertyPath: CollisionModule.plane3
+      value: 
+      objectReference: {fileID: 72434790}
     - target: {fileID: 144998, guid: 9b9673f2d199f7e499892638f0a5e8d8, type: 2}
       propertyPath: m_IsActive
       value: 0
@@ -1558,15 +1631,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 457692, guid: 33b9b717e62a8ff46b9df3f3ba49dffb, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 19811068, guid: 33b9b717e62a8ff46b9df3f3ba49dffb, type: 2}
+      propertyPath: CollisionModule.plane0
+      value: 
+      objectReference: {fileID: 894772894}
+    - target: {fileID: 19811068, guid: 33b9b717e62a8ff46b9df3f3ba49dffb, type: 2}
+      propertyPath: CollisionModule.plane1
+      value: 
+      objectReference: {fileID: 1855733638}
+    - target: {fileID: 19811068, guid: 33b9b717e62a8ff46b9df3f3ba49dffb, type: 2}
+      propertyPath: CollisionModule.plane2
+      value: 
+      objectReference: {fileID: 1610039920}
+    - target: {fileID: 19811068, guid: 33b9b717e62a8ff46b9df3f3ba49dffb, type: 2}
+      propertyPath: CollisionModule.plane3
+      value: 
+      objectReference: {fileID: 72434790}
     - target: {fileID: 128878, guid: 33b9b717e62a8ff46b9df3f3ba49dffb, type: 2}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11460776, guid: 33b9b717e62a8ff46b9df3f3ba49dffb, type: 2}
-      propertyPath: useJoystick
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33b9b717e62a8ff46b9df3f3ba49dffb, type: 2}
@@ -1703,8 +1788,24 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 431474, guid: 46a89da7c66a1714cb09dc4e5e45d69c, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 19899896, guid: 46a89da7c66a1714cb09dc4e5e45d69c, type: 2}
+      propertyPath: CollisionModule.plane0
+      value: 
+      objectReference: {fileID: 894772894}
+    - target: {fileID: 19899896, guid: 46a89da7c66a1714cb09dc4e5e45d69c, type: 2}
+      propertyPath: CollisionModule.plane1
+      value: 
+      objectReference: {fileID: 1855733638}
+    - target: {fileID: 19899896, guid: 46a89da7c66a1714cb09dc4e5e45d69c, type: 2}
+      propertyPath: CollisionModule.plane2
+      value: 
+      objectReference: {fileID: 1610039920}
+    - target: {fileID: 19899896, guid: 46a89da7c66a1714cb09dc4e5e45d69c, type: 2}
+      propertyPath: CollisionModule.plane3
+      value: 
+      objectReference: {fileID: 72434790}
     - target: {fileID: 100724, guid: 46a89da7c66a1714cb09dc4e5e45d69c, type: 2}
       propertyPath: m_IsActive
       value: 0
@@ -2131,8 +2232,24 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 432500, guid: 19a22dafa83d5b74893ee34c7e0c679c, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 19823012, guid: 19a22dafa83d5b74893ee34c7e0c679c, type: 2}
+      propertyPath: CollisionModule.plane0
+      value: 
+      objectReference: {fileID: 894772894}
+    - target: {fileID: 19823012, guid: 19a22dafa83d5b74893ee34c7e0c679c, type: 2}
+      propertyPath: CollisionModule.plane1
+      value: 
+      objectReference: {fileID: 1855733638}
+    - target: {fileID: 19823012, guid: 19a22dafa83d5b74893ee34c7e0c679c, type: 2}
+      propertyPath: CollisionModule.plane2
+      value: 
+      objectReference: {fileID: 1610039920}
+    - target: {fileID: 19823012, guid: 19a22dafa83d5b74893ee34c7e0c679c, type: 2}
+      propertyPath: CollisionModule.plane3
+      value: 
+      objectReference: {fileID: 72434790}
     - target: {fileID: 124980, guid: 19a22dafa83d5b74893ee34c7e0c679c, type: 2}
       propertyPath: m_IsActive
       value: 0
@@ -2266,7 +2383,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
 --- !u!1 &1827240454
 GameObject:
   m_ObjectHideFlags: 0
@@ -2354,7 +2471,7 @@ RectTransform:
   - {fileID: 701662574}
   - {fileID: 1585793704}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -2629,6 +2746,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 19859352, guid: 148ab20cc9e75a047a774ee373bb6c81, type: 2}
+      propertyPath: CollisionModule.plane0
+      value: 
+      objectReference: {fileID: 894772894}
+    - target: {fileID: 19859352, guid: 148ab20cc9e75a047a774ee373bb6c81, type: 2}
+      propertyPath: CollisionModule.plane1
+      value: 
+      objectReference: {fileID: 1855733638}
+    - target: {fileID: 19859352, guid: 148ab20cc9e75a047a774ee373bb6c81, type: 2}
+      propertyPath: CollisionModule.plane2
+      value: 
+      objectReference: {fileID: 1610039920}
+    - target: {fileID: 19859352, guid: 148ab20cc9e75a047a774ee373bb6c81, type: 2}
+      propertyPath: CollisionModule.plane3
+      value: 
+      objectReference: {fileID: 72434790}
     - target: {fileID: 125966, guid: 148ab20cc9e75a047a774ee373bb6c81, type: 2}
       propertyPath: m_IsActive
       value: 0
