@@ -14,7 +14,6 @@ GameObject:
   - 114: {fileID: 11401240}
   - 114: {fileID: 11442742}
   - 114: {fileID: 11428914}
-  - 114: {fileID: 11420222}
   m_Layer: 0
   m_Name: Player5
   m_TagString: Player
@@ -427,21 +426,6 @@ MonoBehaviour:
   thrustForce: 10
   maxSpeed: 10
   lerpFractionPerUpdate: .200000003
-  thrustEmitter: {fileID: 19895180}
---- !u!114 &11420222
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100724}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 134afcd64b4904f41a67a61e9cbb11ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thrustForce: 10
-  maxSpeed: 10
-  turnRate: 135
   thrustEmitter: {fileID: 19895180}
 --- !u!114 &11421400
 MonoBehaviour:

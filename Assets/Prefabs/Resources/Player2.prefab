@@ -47,7 +47,6 @@ GameObject:
   - 114: {fileID: 11472952}
   - 114: {fileID: 11432730}
   - 114: {fileID: 11481944}
-  - 114: {fileID: 11413130}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -413,21 +412,6 @@ TrailRenderer:
       rgba: 16777215
   m_MinVertexDistance: .100000001
   m_Autodestruct: 0
---- !u!114 &11413130
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 144998}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 134afcd64b4904f41a67a61e9cbb11ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thrustForce: 10
-  maxSpeed: 10
-  turnRate: 135
-  thrustEmitter: {fileID: 19835368}
 --- !u!114 &11432730
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -14,7 +14,6 @@ GameObject:
   - 114: {fileID: 11407294}
   - 114: {fileID: 11474868}
   - 114: {fileID: 11434690}
-  - 114: {fileID: 11499036}
   m_Layer: 0
   m_Name: Player3
   m_TagString: Player
@@ -482,21 +481,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useJoystick: 0
   playerNumber: 3
---- !u!114 &11499036
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 101754}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 134afcd64b4904f41a67a61e9cbb11ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thrustForce: 10
-  maxSpeed: 10
-  turnRate: 135
-  thrustEmitter: {fileID: 19898046}
 --- !u!198 &19886406
 ParticleSystem:
   m_ObjectHideFlags: 1

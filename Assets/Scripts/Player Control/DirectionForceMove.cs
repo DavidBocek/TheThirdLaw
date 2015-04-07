@@ -60,7 +60,7 @@ public class DirectionForceMove : MonoBehaviour {
 		force.x = playerManager.HorizontalAxis;
 		force.y = playerManager.VerticalAxis;
 
-		if(force.magnitude < TRANSLATE_DEAD_ZONE)
+		if(playerManager.useJoystick && force.magnitude < TRANSLATE_DEAD_ZONE)
 		{
 			force = new Vector2(0,0);
 		}

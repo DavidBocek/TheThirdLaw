@@ -30,7 +30,6 @@ GameObject:
   - 114: {fileID: 11496268}
   - 114: {fileID: 11402968}
   - 114: {fileID: 11493388}
-  - 114: {fileID: 11494970}
   m_Layer: 0
   m_Name: Player4
   m_TagString: Player
@@ -467,21 +466,6 @@ MonoBehaviour:
   deathClip: {fileID: 8300000, guid: d2d1b64e75c88e342a16c79fb18cfa5b, type: 3}
   isDead: 0
   isInvulnerable: 0
---- !u!114 &11494970
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 124980}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 134afcd64b4904f41a67a61e9cbb11ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thrustForce: 10
-  maxSpeed: 10
-  turnRate: 135
-  thrustEmitter: {fileID: 19832432}
 --- !u!114 &11496268
 MonoBehaviour:
   m_ObjectHideFlags: 1
