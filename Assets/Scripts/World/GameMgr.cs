@@ -51,7 +51,6 @@ public class GameMgr : MonoBehaviour {
 		PersistantData.mostRecentScores = GameObject.FindWithTag("Scoreboard").GetComponent<ScoreboardMgr>().GetScores();
 		foreach (GameObject player in activePlayers){
 			player.GetComponent<DirectionForceMove>().enabled = false;
-			player.GetComponent<RotationalMove>().enabled = false;
 		}
 		StartCoroutine(EndGameEffects());
 	}
@@ -60,7 +59,6 @@ public class GameMgr : MonoBehaviour {
 		Time.timeScale = 0f;
 		foreach (GameObject player in activePlayers){
 			player.GetComponent<DirectionForceMove>().enabled = false;
-			player.GetComponent<RotationalMove>().enabled = false;
 		}
 		Text startTimer = GameObject.FindWithTag("StartTimerText").GetComponent<Text>();
 		for (float t=5f; t>0f; t-=Time.unscaledDeltaTime){
@@ -72,7 +70,6 @@ public class GameMgr : MonoBehaviour {
 		yield return new WaitForSeconds(1f);
 		foreach (GameObject player in activePlayers){
 			player.GetComponent<DirectionForceMove>().enabled = true;
-			player.GetComponent<RotationalMove>().enabled = true;
 		}
 		startTimer.gameObject.SetActive(false);
 	}
@@ -82,21 +79,17 @@ public class GameMgr : MonoBehaviour {
 			Time.timeScale = Mathf.Lerp(1f, .125f, t/2f);
 			yield return null;
 		}
-		/*Image screen = GameObject.FindWithTag("BlackScreen").GetComponent<Image>();
+		Image screen = GameObject.FindWithTag("BlackScreen").GetComponent<Image>();
 		Color c = screen.color;
 		for (float t=0; t<1f; t+=Time.unscaledDeltaTime){
 			c.a = Mathf.Lerp(0f, 1f, t);
 			screen.color = c;
 			yield return null;
-		}*/
+		}
 		Time.timeScale = 1f;
 		yield return new WaitForSeconds(1f);
-		//c.a = 0f;
-		//screen.material.color = c;
+		c.a = 0f;
+		screen.color = c;
 		Application.LoadLevel(3);	//results screen
-
-		//for testing
-		// Debug.Break();
-		//========
 	}
 }
