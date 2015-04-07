@@ -8,6 +8,7 @@ TagManager:
   - GameMgr
   - StartTimerText
   - BlackScreen
+  - UIEffectsMgr
   layers:
   - Default
   - TransparentFX

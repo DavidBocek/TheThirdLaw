@@ -105,8 +105,8 @@ public class CharacterSelectionMenu : MonoBehaviour {
 			blackScreen.color = c;
 			yield return null;
 		}
-		c.a = 0f;
-		blackScreen.color = c;
+		//c.a = 0f;
+		//blackScreen.color = c;
 		Application.LoadLevel(2);
 	}
 
