@@ -15,7 +15,7 @@ public class UIEffectsMgr : MonoBehaviour {
 		if (!isSlowing){
 			StartCoroutine(SlowTime(health, proj));
 		}
-		//Camera.main.GetComponent<CameraShake>().StartShake();
+		//Camera.main.GetComponent<ObjectShake>().StartShake();
 		StartCoroutine(PlusOnePointEffect(health.gameObject, scoreboard, playerOwner));
 	}
 
