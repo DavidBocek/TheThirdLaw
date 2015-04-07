@@ -895,7 +895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: eb0eb18cd28de384b8a6d91a585c5e7a, type: 3}
     m_FontSize: 100
@@ -1730,7 +1730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelRoots:
-  - {fileID: 0}
+  - {fileID: 169114, guid: 6f4a2c9e317125e408d28b67f58b09a6, type: 2}
   - {fileID: 197902, guid: f259ced15124eef47a410027af46db37, type: 2}
   - {fileID: 129110, guid: d0677993263ed6e4b9b5adf13a830259, type: 2}
 --- !u!1 &1458863797
@@ -2355,12 +2355,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1700096354}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d5596ff882798d428c4b8bbf5ba8381, type: 3}
+  m_Script: {fileID: 11500000, guid: bc6295c7dcc62c84592dac045290fac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeAmount: .699999988
-  decreaseFactor: 1
-  shakeLength: 1
+  shakeTime: .0250000004
+  shakeAmount: 1
+  totalPoints: 4
 --- !u!1 &1744970950
 GameObject:
   m_ObjectHideFlags: 0
