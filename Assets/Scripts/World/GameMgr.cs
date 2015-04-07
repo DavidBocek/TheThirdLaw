@@ -51,7 +51,6 @@ public class GameMgr : MonoBehaviour {
 		PersistantData.mostRecentScores = GameObject.FindWithTag("Scoreboard").GetComponent<ScoreboardMgr>().GetScores();
 		foreach (GameObject player in activePlayers){
 			player.GetComponent<DirectionForceMove>().enabled = false;
-			player.GetComponent<RotationalMove>().enabled = false;
 		}
 		StartCoroutine(EndGameEffects());
 	}
@@ -60,7 +59,6 @@ public class GameMgr : MonoBehaviour {
 		Time.timeScale = 0f;
 		foreach (GameObject player in activePlayers){
 			player.GetComponent<DirectionForceMove>().enabled = false;
-			player.GetComponent<RotationalMove>().enabled = false;
 		}
 		Text startTimer = GameObject.FindWithTag("StartTimerText").GetComponent<Text>();
 		for (float t=5f; t>0f; t-=Time.unscaledDeltaTime){
@@ -72,7 +70,6 @@ public class GameMgr : MonoBehaviour {
 		yield return new WaitForSeconds(1f);
 		foreach (GameObject player in activePlayers){
 			player.GetComponent<DirectionForceMove>().enabled = true;
-			player.GetComponent<RotationalMove>().enabled = true;
 		}
 		startTimer.gameObject.SetActive(false);
 	}

@@ -44,7 +44,6 @@ public class DirectionForceMove : MonoBehaviour {
 
 		if (inputDir.magnitude > ROTATE_DEAD_ZONE){
 			inputDir = inputDir.normalized;
-			Debug.Log(inputDir);
 			transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(Vector3.forward, inputDir), lerpFractionPerUpdate);
 		}
 
@@ -76,7 +75,7 @@ public class DirectionForceMove : MonoBehaviour {
 		
 		force *= fireProj.canMove ? thrustForce : 0f;	//stop thrusting while charging shot
 
-		//playerManager.rb.AddForce(force, ForceMode2D.Force);
+		playerManager.rb.AddForce(force, ForceMode2D.Force);
 		//max speed check
 		if (!fireProj.isRebounding && playerManager.rb.velocity.sqrMagnitude > maxSpeed*maxSpeed){
 			Vector2 temp = new Vector2(playerManager.rb.velocity.x, playerManager.rb.velocity.y);
