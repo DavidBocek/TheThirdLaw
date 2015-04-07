@@ -8,29 +8,31 @@ public class UIEffectsMgr : MonoBehaviour {
 	public AudioClip slowTimeHitClip;
 
 	private bool isSlowing = false;
-	private bool isShaking = false;
 
 	public void PlayImpactEffects(Health health, GameObject proj, ScoreboardMgr scoreboard, int playerOwner){
 		health.AnimatePreDeath();
-		if (!isSlowing){
-			StartCoroutine(SlowTime(health, proj));
-		}
-		//Camera.main.GetComponent<CameraShake>().StartShake();
+		StartCoroutine(SlowTime(health, proj));
 		StartCoroutine(PlusOnePointEffect(health.gameObject, scoreboard, playerOwner));
 	}
 
 	private IEnumerator SlowTime(Health health, GameObject proj){
-		isSlowing = true;
 		Rigidbody2D rb = health.gameObject.GetComponent<Rigidbody2D>();
 		Destroy(proj);
 		AudioSource.PlayClipAtPoint(slowTimeHitClip, proj.transform.position, 1f);
-		for (float t=0; t<=1f; t+=Time.unscaledDeltaTime){
-			rb.velocity = Vector3.zero;
-			Time.timeScale = Mathf.Lerp(1f,.2f,t);
-			yield return null;
+		if (!isSlowing){
+			isSlowing = true;
+			for (float t=0; t<=1f; t+=Time.unscaledDeltaTime){
+				rb.velocity = Vector3.zero;
+				Time.timeScale = Mathf.Lerp(1f,.2f,t);
+				yield return null;
+			}
+			Time.timeScale = .2f;
+			isSlowing = false;
+		} else {
+			yield return new WaitForSeconds(1f);
 		}
-		Time.timeScale = .2f;
 		health.OnImpact();
+		Camera.main.GetComponent<ObjectShake>().StartShake();
 		Time.timeScale = 1f;
 		isSlowing = false;
 	}
