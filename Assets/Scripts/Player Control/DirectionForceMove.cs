@@ -44,7 +44,6 @@ public class DirectionForceMove : MonoBehaviour {
 
 		if (inputDir.magnitude > ROTATE_DEAD_ZONE){
 			inputDir = inputDir.normalized;
-			Debug.Log(inputDir);
 			transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(Vector3.forward, inputDir), lerpFractionPerUpdate);
 		}
 
@@ -61,7 +60,7 @@ public class DirectionForceMove : MonoBehaviour {
 		force.x = playerManager.HorizontalAxis;
 		force.y = playerManager.VerticalAxis;
 
-		if(force.magnitude < TRANSLATE_DEAD_ZONE)
+		if(playerManager.useJoystick && force.magnitude < TRANSLATE_DEAD_ZONE)
 		{
 			force = new Vector2(0,0);
 		}
