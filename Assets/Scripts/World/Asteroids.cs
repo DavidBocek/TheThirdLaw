@@ -20,7 +20,7 @@ public class Asteroids : MonoBehaviour {
 		var randominnery = Random.Range(-5,5);
 		var randomoutterpoint = Random.onUnitSphere*25;
 		passthrough = new Vector2(randominnerx,randominnery);
-		GsmeObject ast = (GameObject) Instantiate (Asteroid, new Vector3(randomoutterpoint.x, randomoutterpoint.y), Quaternion.LookRotation(Vector3.forward));
+		GameObject ast = (GameObject) Instantiate (Asteroid, new Vector3(randomoutterpoint.x, randomoutterpoint.y), Quaternion.LookRotation(Vector3.forward));
 		ast.GetComponent<Rigidbody2D>().velocity = (passthrough * asteroidspeed);
 	}
 	
