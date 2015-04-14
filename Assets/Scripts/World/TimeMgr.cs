@@ -9,6 +9,7 @@ public class TimeMgr : MonoBehaviour {
 
 	private float curTimer;
 	private bool gameEnded = false;
+	private bool isRaining = false;
 	private GameMgr gameMgr;
 
 	// Use this for initialization
@@ -22,6 +23,13 @@ public class TimeMgr : MonoBehaviour {
 		if (gameEnded || secondsUntilEnd < 0) return;
 		curTimer -= Time.deltaTime;
 		timerText.text = "TIME: "+(int)curTimer;
+		if(curTimer < 30 && curTimer > 29)
+		{
+			if(!isRaining)
+			{
+				StartCoroutine("StartAsteroids");
+			}
+		}
 		if (curTimer <= 10){
 			timerText.color = Color.red; 
 		}
@@ -30,5 +38,12 @@ public class TimeMgr : MonoBehaviour {
 			gameEnded = true;
 			gameMgr.EndGame();
 		}
+	}
+
+	private IEnumerator StartAsteroids()
+	{
+		isRaining = true;
+		gameObject.GetComponent<Asteroids>().callAsteroids();
+		yield return new WaitForSeconds(2);
 	}
 }

@@ -1912,6 +1912,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1521020004}
   - 114: {fileID: 1521020003}
+  - 114: {fileID: 1521020005}
   m_Layer: 0
   m_Name: Time Manager
   m_TagString: Untagged
@@ -1930,7 +1931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f65ee27c86c9a8499514ce2f620b4d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsUntilEnd: 201
+  secondsUntilEnd: 32
   timerText: {fileID: 619444904}
 --- !u!4 &1521020004
 Transform:
@@ -1944,6 +1945,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
+--- !u!114 &1521020005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1521020002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77681ceb840f5974cafeb206565e5b49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Asteroid: {fileID: 138078, guid: 33c8a561a82ecf547a80b975d031494f, type: 2}
+  timeinbetween: 5
+  asteroidspeed: 10
 --- !u!1001 &1522643070
 Prefab:
   m_ObjectHideFlags: 0
@@ -2355,7 +2370,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1700096354}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc6295c7dcc62c84592dac045290fac1, type: 3}
+  m_Script: {fileID: 11500000, guid: ead169e84c0f08e4cba2e19783e94610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shakeTime: .0250000004
