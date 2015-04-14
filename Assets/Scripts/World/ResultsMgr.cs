@@ -6,6 +6,8 @@ using System.Collections.Generic;
 public class ResultsMgr : MonoBehaviour {
 	
 	//the view of the MVC for the character selection screen
+
+	public GameObject continueText;
 	
 	public Sprite[] shipPreviewSprites;
 
@@ -16,18 +18,20 @@ public class ResultsMgr : MonoBehaviour {
 
 	List<KeyValuePair<int, int>> scoresList = new List<KeyValuePair<int, int>>{};
 	
+	private bool displayContinueText = false;
+
 	// Use this for initialization
 	void Start () {
 		foreach (KeyValuePair<int, int> kvp in PersistantData.mostRecentScores) {
 			scoresList.Add(kvp);
 		}
 
-		scoresList.Sort(CompareScores);
-
 		// TODO: Remove after testing
 		foreach (KeyValuePair<int, int> kvp in scoresList) {
 			Debug.Log ("kvp: " + kvp.ToString());
 		}
+
+		scoresList.Sort(CompareScores);
 
 		if (shipPreviewSprites.Length != 6){
 			Debug.LogError("Improper preview sprites length. Include the 6 ships in the proper order.");
@@ -59,14 +63,41 @@ public class ResultsMgr : MonoBehaviour {
 			placeTexts[i].GetComponent<Text>().text = place.ToString();
 
 			// Display Ship
-			int playerNum = score.Key;
-			int shipIndex = PersistantData.playersToSpawn[playerNum];
+			int shipIndex = score.Key;
 			selectImages[i].SetActive(true);
 			selectImages[i].GetComponent<Image>().sprite = shipPreviewSprites[shipIndex];
 
 			// Display score
 			scoreTexts[i].SetActive(true);
 			scoreTexts[i].GetComponent<Text>().text = "Score: " + score.Value.ToString();
+		}
+
+		StartCoroutine(BlinkContinueText());
+	}
+
+	void Update() {
+		if ((Input.GetButtonDown ("Player0-Fire1")) || 
+		(Input.GetButtonDown ("Player1-Fire1")) || 
+		(Input.GetButtonDown ("Player2-Fire1")) ||
+		(Input.GetButtonDown ("Player3-Fire1"))) {
+			Application.LoadLevel(1);
+		}
+	}
+
+	void OnGUI() {
+		if (displayContinueText) {
+			continueText.SetActive(true);
+		} else {
+			continueText.SetActive(false);
+		}
+	}
+
+	private IEnumerator BlinkContinueText() {
+		while(true) {
+			displayContinueText = true;
+			yield return new WaitForSeconds(1f);
+			displayContinueText = false;
+			yield return new WaitForSeconds(1f);
 		}
 	}
 
