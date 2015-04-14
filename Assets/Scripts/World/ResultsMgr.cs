@@ -26,11 +26,6 @@ public class ResultsMgr : MonoBehaviour {
 			scoresList.Add(kvp);
 		}
 
-		// TODO: Remove after testing
-		foreach (KeyValuePair<int, int> kvp in scoresList) {
-			Debug.Log ("kvp: " + kvp.ToString());
-		}
-
 		scoresList.Sort(CompareScores);
 
 		if (shipPreviewSprites.Length != 6){

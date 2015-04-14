@@ -2010,7 +2010,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22c12469a324d884d8b1124252332fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useJoystick: 1
+  useJoystick: 0
   selectionMgr: {fileID: 432636915}
 --- !u!4 &1769424209
 Transform:
