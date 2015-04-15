@@ -23,7 +23,7 @@ public class TimeMgr : MonoBehaviour {
 		if (gameEnded || secondsUntilEnd < 0) return;
 		curTimer -= Time.deltaTime;
 		timerText.text = "TIME: "+(int)curTimer;
-		if(curTimer < 30 && curTimer > 29)
+		if(curTimer < 31 && curTimer > 30)
 		{
 			if(!isRaining)
 			{
