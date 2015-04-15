@@ -8,6 +8,7 @@ public class Asteroids : MonoBehaviour {
 	public float timeinbetween;
 	public float asteroidspeed;
 	private Vector2 passthrough;
+	private Vector2 forcedirection;
 	// Use this for initialization
 	void Start (){
 	}
@@ -19,9 +20,9 @@ public class Asteroids : MonoBehaviour {
 		var randominnerx = Random.Range(-5,5);
 		var randominnery = Random.Range(-5,5);
 		var randomoutterpoint = Random.onUnitSphere*25;
-		passthrough = new Vector2(randominnerx,randominnery);
+		forcedirection = new Vector2((randominnerx-randomoutterpoint.x),(randominnery-randomoutterpoint.y));
 		GameObject ast = (GameObject) Instantiate (Asteroid, new Vector3(randomoutterpoint.x, randomoutterpoint.y), Quaternion.LookRotation(Vector3.forward));
-		ast.GetComponent<Rigidbody2D>().velocity = (passthrough * asteroidspeed);
+		ast.GetComponent<Rigidbody2D>().AddForce(forcedirection, ForceMode2D.Impulse);
 	}
 	
 	// Update is called once per frame
