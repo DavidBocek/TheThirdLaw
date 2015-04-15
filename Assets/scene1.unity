@@ -1958,7 +1958,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Asteroid: {fileID: 138078, guid: 33c8a561a82ecf547a80b975d031494f, type: 2}
   timeinbetween: 3
-  asteroidspeed: 6
+  asteroidspeed: 15
 --- !u!1001 &1522643070
 Prefab:
   m_ObjectHideFlags: 0
