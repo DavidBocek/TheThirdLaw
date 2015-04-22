@@ -25,6 +25,10 @@ public class CharacterSelectionMenu : MonoBehaviour {
 		if (starting) return;
 		for (int i=0; i<4; i++){
 			float h = useJoystick ? Input.GetAxisRaw("Player"+i+"-HorizontalJoy") : Input.GetAxisRaw("Player"+i+"-Horizontal");
+			if (useJoystick && h < .5f){
+				h = 0;
+			}
+
 			if (h!=0 && !inputLagLocks[i] && !inputLockedIn[i] && curSelections[i] != -1){
 					StartCoroutine(ChangeSelection(i, h<0f));
 			}

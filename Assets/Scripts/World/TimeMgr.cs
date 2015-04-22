@@ -43,7 +43,7 @@ public class TimeMgr : MonoBehaviour {
 	private IEnumerator StartAsteroids()
 	{
 		isRaining = true;
-		gameObject.GetComponent<Asteroids>().callAsteroids();
+		gameObject.GetComponent<Asteroids>().StartSpawningAsteroids();
 		yield return new WaitForSeconds(2);
 	}
 }

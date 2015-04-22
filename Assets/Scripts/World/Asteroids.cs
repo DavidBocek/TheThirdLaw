@@ -5,30 +5,25 @@ public class Asteroids : MonoBehaviour {
 
 	// time in between asteroids spawning
 	public GameObject Asteroid;
-	public float timeinbetween;
-	public float asteroidspeed;
-	private Vector2 passthrough;
-	private Vector2 forcedirection;
-	private Vector2 normforce;
+	public float timeInBetween;
+	public float asteroidSpeed;
+	private Vector2 passThrough;
+	private Vector2 forceDirection;
+	private Vector2 normForce;
 	// Use this for initialization
 	void Start (){
 	}
-	public void callAsteroids(){
-		InvokeRepeating ("Spawn", 1, timeinbetween);
+	public void StartSpawningAsteroids(){
+		InvokeRepeating ("Spawn", 1, timeInBetween);
 	}
 	
 	private void Spawn(){
-		var randominnerx = Random.Range(-5,5);
-		var randominnery = Random.Range(-5,5);
-		var randomoutterpoint = Random.onUnitSphere*50;
-		forcedirection = new Vector2((randominnerx-randomoutterpoint.x),(randominnery-randomoutterpoint.y));
-		normforce = forcedirection.normalized;
-		GameObject ast = (GameObject) Instantiate (Asteroid, new Vector3(randomoutterpoint.x, randomoutterpoint.y), Quaternion.LookRotation(Vector3.forward));
-		ast.GetComponent<Rigidbody2D>().AddForce((normforce*asteroidspeed), ForceMode2D.Impulse);
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
-	
+		var randomInnerX = Random.Range(-10f,10f);
+		var randomInnerY = Random.Range(-7.5f,7.5f);
+		var randomOutterPoint = Random.onUnitSphere*50;
+		forceDirection = new Vector2((randomInnerX-randomOutterPoint.x),(randomInnerY-randomOutterPoint.y));
+		normForce = forceDirection.normalized;
+		GameObject ast = (GameObject) Instantiate (Asteroid, new Vector3(randomOutterPoint.x, randomOutterPoint.y), Quaternion.LookRotation(Vector3.forward));
+		ast.GetComponent<Rigidbody2D>().AddForce((normForce*asteroidSpeed), ForceMode2D.Impulse);
 	}
 }
