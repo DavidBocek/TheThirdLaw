@@ -20,11 +20,12 @@ public class Asteroids : MonoBehaviour {
 	private void Spawn(){
 		var randomInnerX = Random.Range(-10f,10f);
 		var randomInnerY = Random.Range(-7.5f,7.5f);
-		var randomOutterPoint = Random.onUnitSphere*50;
+		var randomOutterPoint = Random.insideUnitCircle.normalized*30f;
 		forceDirection = new Vector2((randomInnerX-randomOutterPoint.x),(randomInnerY-randomOutterPoint.y));
 		normForce = forceDirection.normalized;
-		GameObject ast = (GameObject) Instantiate (Asteroid, new Vector3(randomOutterPoint.x, randomOutterPoint.y), Quaternion.LookRotation(Vector3.forward));
-		ast.GetComponent<Asteroid>().InitializeMotion(normForce*asteroidSpeed);
+		GameObject ast = (GameObject) Instantiate (Asteroid, new Vector3(randomOutterPoint.x, randomOutterPoint.y), 
+		                                           Quaternion.identity);
+		ast.GetComponent<Asteroid>().InitializeMotion(ast.transform.TransformDirection(normForce*asteroidSpeed));
 		Destroy(ast, 20f);
 	}
 }
