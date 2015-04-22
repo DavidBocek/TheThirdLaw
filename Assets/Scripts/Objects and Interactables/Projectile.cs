@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour {
 	private Rigidbody2D rb;
 	private ScoreboardMgr scoreboard;
 	private UIEffectsMgr UIEffects;
+	private Vector2 lastPos, curPos;
 
 	//initialize here
 	public void OnFire(Vector3 dir, int owner){
@@ -20,16 +21,22 @@ public class Projectile : MonoBehaviour {
 		playerOwner = owner;
 		UIEffects = GameObject.FindWithTag("UIEffectsMgr").GetComponent<UIEffectsMgr>();
 		Destroy(gameObject, lifetime);
+		lastPos = new Vector2(transform.position.x, transform.position.y);
+		curPos = new Vector2();
+	}
+
+	public void FixedUpdate(){
+		curPos.x = transform.position.x;
+		curPos.y = transform.position.y;
+
+		//ricochet logic
+
+
+		lastPos.x = curPos.x;
+		lastPos.y = curPos.y;
 	}
 
 	void OnCollisionEnter2D(Collision2D coll){
-		//ricochet logic
-		float bounciness = 1f;
-		BounceOff b = coll.collider.GetComponent<BounceOff>();
-		if (b != null){
-			Vector2 normal = coll.contacts[0].normal;
-			rb.AddForce(normal * coll.relativeVelocity.magnitude * bounciness, ForceMode2D.Impulse);
-		}
 		
 		//destroy logic
 		Health health = coll.collider.GetComponent<Health>();
