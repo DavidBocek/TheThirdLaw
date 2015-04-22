@@ -59,6 +59,7 @@ public class GameMgr : MonoBehaviour {
 		Time.timeScale = 0f;
 		foreach (GameObject player in activePlayers){
 			player.GetComponent<DirectionForceMove>().enabled = false;
+			player.GetComponent<FireProjectile>().enabled = false;
 		}
 		Text startTimer = GameObject.FindWithTag("StartTimerText").GetComponent<Text>();
 		for (float t=5f; t>0f; t-=Time.unscaledDeltaTime){
@@ -70,6 +71,7 @@ public class GameMgr : MonoBehaviour {
 		yield return new WaitForSeconds(.5f);
 		foreach (GameObject player in activePlayers){
 			player.GetComponent<DirectionForceMove>().enabled = true;
+			player.GetComponent<FireProjectile>().enabled = true;
 		}
 		startTimer.gameObject.SetActive(false);
 	}
