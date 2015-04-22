@@ -25,7 +25,7 @@ public class CharacterSelectionMenu : MonoBehaviour {
 		if (starting) return;
 		for (int i=0; i<4; i++){
 			float h = useJoystick ? Input.GetAxisRaw("Player"+i+"-HorizontalJoy") : Input.GetAxisRaw("Player"+i+"-Horizontal");
-			if (useJoystick && h < .5f){
+			if (useJoystick && Mathf.Abs(h) < .5f){
 				h = 0;
 			}
 

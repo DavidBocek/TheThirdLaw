@@ -28,7 +28,7 @@ public class Projectile : MonoBehaviour {
 		BounceOff b = coll.collider.GetComponent<BounceOff>();
 		if (b != null){
 			Vector2 normal = coll.contacts[0].normal;
-			rb.AddForce(normal * coll.relativeVelocity.magnitude * bounciness, ForceMode2D.Impulse);;
+			rb.AddForce(normal * coll.relativeVelocity.magnitude * bounciness, ForceMode2D.Impulse);
 		}
 		
 		//destroy logic

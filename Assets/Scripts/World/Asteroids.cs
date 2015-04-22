@@ -24,6 +24,7 @@ public class Asteroids : MonoBehaviour {
 		forceDirection = new Vector2((randomInnerX-randomOutterPoint.x),(randomInnerY-randomOutterPoint.y));
 		normForce = forceDirection.normalized;
 		GameObject ast = (GameObject) Instantiate (Asteroid, new Vector3(randomOutterPoint.x, randomOutterPoint.y), Quaternion.LookRotation(Vector3.forward));
-		ast.GetComponent<Rigidbody2D>().AddForce((normForce*asteroidSpeed), ForceMode2D.Impulse);
+		ast.GetComponent<Asteroid>().InitializeMotion(normForce*asteroidSpeed);
+		Destroy(ast, 20f);
 	}
 }
