@@ -15,7 +15,7 @@ public class Asteroid : MonoBehaviour {
 	{
 		vel = new Vector3(motion.x, motion.y);
 		pictureTrans = GetComponentInChildren<Transform>();
-		pictureTrans.Rotate(Vector3.forward, Random.Range(360f));
+		pictureTrans.Rotate(Vector3.forward, Random.Range(0f, 360f));
 	}
 
 	void OnTriggerEnter2D(Collider2D coll)
