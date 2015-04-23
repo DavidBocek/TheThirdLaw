@@ -6,38 +6,47 @@ public class Projectile : MonoBehaviour {
 	public float force, lifetime;
 
 	private int playerOwner;
-	private Vector3 movementDir;
+	private Vector2 curVel, curPos, lastPos;
+	private float speed;
 
 	private Rigidbody2D rb;
 	private ScoreboardMgr scoreboard;
 	private UIEffectsMgr UIEffects;
-	private Vector2 lastPos, curPos;
+
+	void Start(){
+		lastPos = new Vector2(transform.position.x, transform.position.y);
+	}
 
 	//initialize here
 	public void OnFire(Vector3 dir, int owner){
 		rb = GetComponent<Rigidbody2D>();
 		scoreboard = GameObject.FindWithTag("Scoreboard").GetComponent<ScoreboardMgr>();
 		rb.AddForce((new Vector2(dir.x, dir.y)).normalized * force, ForceMode2D.Impulse);
+		speed = rb.velocity.magnitude;
 		playerOwner = owner;
 		UIEffects = GameObject.FindWithTag("UIEffectsMgr").GetComponent<UIEffectsMgr>();
 		Destroy(gameObject, lifetime);
-		lastPos = new Vector2(transform.position.x, transform.position.y);
-		curPos = new Vector2();
 	}
 
 	public void FixedUpdate(){
 		curPos.x = transform.position.x;
 		curPos.y = transform.position.y;
-
-		//ricochet logic
-
-
-		lastPos.x = curPos.x;
-		lastPos.y = curPos.y;
+		curVel = curPos - lastPos;
+		lastPos = curPos;
 	}
 
 	void OnCollisionEnter2D(Collision2D coll){
-		
+		//ricochet logic
+		Vector2 normal = Vector2.zero;
+		foreach (ContactPoint2D contact in coll.contacts){
+			normal += contact.normal;
+			Debug.DrawRay(contact.point, contact.normal, Color.red);
+		}
+		normal /= coll.contacts.Length;
+		Vector3 newVel = Vector3.Reflect(curVel.normalized, normal);
+		rb.velocity = speed * (Vector2) newVel;
+
+
 		//destroy logic
 		Health health = coll.collider.GetComponent<Health>();
 		if (health != null){
