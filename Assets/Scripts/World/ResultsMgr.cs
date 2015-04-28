@@ -75,7 +75,7 @@ public class ResultsMgr : MonoBehaviour {
 		(Input.GetButtonDown ("Player1-Fire1")) || 
 		(Input.GetButtonDown ("Player2-Fire1")) ||
 		(Input.GetButtonDown ("Player3-Fire1"))) {
-			Application.LoadLevel(1);
+			Application.LoadLevel(0);
 		}
 	}
 

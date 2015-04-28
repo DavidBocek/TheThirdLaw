@@ -9,6 +9,9 @@ TagManager:
   - StartTimerText
   - BlackScreen
   - UIEffectsMgr
+  - MusicMgr
+  - MusicSrc
+  - Walls
   layers:
   - Default
   - TransparentFX

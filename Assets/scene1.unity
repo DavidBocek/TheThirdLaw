@@ -333,7 +333,7 @@ GameObject:
   - 4: {fileID: 155560459}
   m_Layer: 0
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -493,6 +493,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 578880970}
   - 114: {fileID: 578880971}
+  - 114: {fileID: 578880972}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: GameMgr
@@ -523,6 +524,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7320d57340bae4e93543e77f10c739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &578880972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 578880969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04f73f3f9a4e74744b92e0f7fff450a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallMat: {fileID: 2100000, guid: 1287455756090fe4aab086f66df8f21c, type: 2}
 --- !u!1001 &609617318
 Prefab:
   m_ObjectHideFlags: 0
@@ -1266,7 +1279,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1287455756090fe4aab086f66df8f21c, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1339,7 +1352,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1287455756090fe4aab086f66df8f21c, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1733,6 +1746,7 @@ MonoBehaviour:
   - {fileID: 169114, guid: 6f4a2c9e317125e408d28b67f58b09a6, type: 2}
   - {fileID: 197902, guid: f259ced15124eef47a410027af46db37, type: 2}
   - {fileID: 129110, guid: d0677993263ed6e4b9b5adf13a830259, type: 2}
+  levelRoot: {fileID: 0}
 --- !u!1 &1458863797
 GameObject:
   m_ObjectHideFlags: 0
@@ -1931,7 +1945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f65ee27c86c9a8499514ce2f620b4d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsUntilEnd: 41
+  secondsUntilEnd: 121
   timerText: {fileID: 619444904}
 --- !u!4 &1521020004
 Transform:
@@ -1958,6 +1972,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Asteroid: {fileID: 138078, guid: 33c8a561a82ecf547a80b975d031494f, type: 2}
   timeInBetween: 5
+  speedUpFactor: .899999976
   asteroidSpeed: 10
 --- !u!1001 &1522643070
 Prefab:
@@ -2290,6 +2305,7 @@ GameObject:
   - 124: {fileID: 1700096356}
   - 81: {fileID: 1700096355}
   - 114: {fileID: 1700096360}
+  - 114: {fileID: 1700096361}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2376,6 +2392,44 @@ MonoBehaviour:
   shakeTime: .0250000004
   shakeAmount: 1
   totalPoints: 4
+--- !u!114 &1700096361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1700096354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fceaeb339b971b429c4cc600acabd13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweakMode: 0
+  screenBlendMode: 1
+  hdr: 0
+  sepBlurSpread: 3.92000008
+  quality: 1
+  bloomIntensity: 1.35000002
+  bloomThreshold: .360000014
+  bloomThresholdColor: {r: 1, g: 1, b: 1, a: 1}
+  bloomBlurIterations: 3
+  hollywoodFlareBlurIterations: 2
+  flareRotation: 0
+  lensflareMode: 1
+  hollyStretchWidth: 2.5
+  lensflareIntensity: 0
+  lensflareThreshold: .300000012
+  lensFlareSaturation: .75
+  flareColorA: {r: .400000006, g: .400000006, b: .800000012, a: .75}
+  flareColorB: {r: .400000006, g: .800000012, b: .800000012, a: .75}
+  flareColorC: {r: .800000012, g: .400000006, b: .800000012, a: .75}
+  flareColorD: {r: .800000012, g: .400000006, b: 0, a: .75}
+  lensFlareVignetteMask: {fileID: 2800000, guid: 95ef4804fe0be4c999ddaa383536cde8,
+    type: 3}
+  lensFlareShader: {fileID: 4800000, guid: 459fe69d2f6d74ddb92f04dbf45a866b, type: 3}
+  screenBlendShader: {fileID: 4800000, guid: 7856cbff0a0ca45c787d5431eb805bb0, type: 3}
+  blurAndFlaresShader: {fileID: 4800000, guid: be6e39cf196f146d5be72fbefb18ed75, type: 3}
+  brightPassFilterShader: {fileID: 4800000, guid: 0aeaa4cb29f5d4e9c8455f04c8575c8c,
+    type: 3}
 --- !u!1 &1744970950
 GameObject:
   m_ObjectHideFlags: 0
@@ -2493,7 +2547,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1287455756090fe4aab086f66df8f21c, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -3163,7 +3217,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1287455756090fe4aab086f66df8f21c, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1

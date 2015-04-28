@@ -8,7 +8,7 @@ public class Asteroid : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-		transform.Translate(Time.fixedDeltaTime * vel);
+		transform.Translate(Time.fixedDeltaTime * vel, Space.World);
 	}
 
 	public void InitializeMotion(Vector2 motion)
@@ -20,9 +20,9 @@ public class Asteroid : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D coll)
 	{
-		if (coll.GetComponent<Collider>().gameObject.CompareTag("Player"))
+		if (coll.gameObject.CompareTag("Player"))
 		{
-			coll.GetComponent<Collider>().GetComponent<Health>().OnImpact();
+			coll.GetComponent<Health>().OnImpact();
 		}
 	}
 

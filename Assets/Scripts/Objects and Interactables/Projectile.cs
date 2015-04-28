@@ -7,7 +7,7 @@ public class Projectile : MonoBehaviour {
 
 	private int playerOwner;
 	private Vector2 curVel, curPos, lastPos;
-	private float speed;
+	private float speed = 20;
 
 	private Rigidbody2D rb;
 	private ScoreboardMgr scoreboard;
@@ -22,7 +22,7 @@ public class Projectile : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D>();
 		scoreboard = GameObject.FindWithTag("Scoreboard").GetComponent<ScoreboardMgr>();
 		rb.AddForce((new Vector2(dir.x, dir.y)).normalized * force, ForceMode2D.Impulse);
-		speed = rb.velocity.magnitude;
+		//speed = rb.velocity.magnitude;
 		playerOwner = owner;
 		UIEffects = GameObject.FindWithTag("UIEffectsMgr").GetComponent<UIEffectsMgr>();
 		Destroy(gameObject, lifetime);
@@ -36,8 +36,10 @@ public class Projectile : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D coll){
-		//don't ricochet on yourself
-		if (coll.collider.GetComponent<Projectile>() != this){
+		//don't ricochet on the ship that shot the projectile or the projectile itself
+		PlayerManager pm = coll.collider.GetComponent<PlayerManager>();
+		if (coll.collider.GetComponent<Projectile>() != this && 
+		    ((pm != null && pm.playerNumber != playerOwner) || pm == null)){
 			//ricochet logic
 			Vector2 normal = Vector2.zero;
 			foreach (ContactPoint2D contact in coll.contacts){
