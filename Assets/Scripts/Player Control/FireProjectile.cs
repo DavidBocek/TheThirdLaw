@@ -21,6 +21,7 @@ public class FireProjectile : MonoBehaviour {
 	public float chargingParticleRate;
 	public ParticleSystem chargingParticles;
 	public ParticleSystem shotParticles;
+	private ChargeLaser chargeLaser;
 
 	//sound
 	public AudioSource chargingSound;
@@ -33,6 +34,7 @@ public class FireProjectile : MonoBehaviour {
 	void Start () {
 		playerManager = GetComponent<PlayerManager>();
 		health = GetComponent<Health>();
+		chargeLaser = GetComponent<ChargeLaser>();
 	}
 	
 	// Update is called once per frame
@@ -62,9 +64,11 @@ public class FireProjectile : MonoBehaviour {
 			}
 			//charge particles and noise
 			chargingParticles.emissionRate = Mathf.Lerp(originalRate, chargingParticleRate, t);
+			chargeLaser.opacity = t;
 			yield return null;
 		}
 		chargingParticles.emissionRate = originalRate;
+		chargeLaser.opacity = 0f;
 		chargingParticles.Stop(true);
 		if (!health.isDead){
 			shotParticles.Play();

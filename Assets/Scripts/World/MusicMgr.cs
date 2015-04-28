@@ -25,6 +25,10 @@ public class MusicMgr : MonoBehaviour {
 		//levelIndex: 0 => main title; 1 => ship selection; 2 => gameplay; 3 => results
 		switch(levelIndex){
 		case 0:
+			Destroy(intro);
+			Destroy(introLoop);
+			Destroy(layer1);
+			Destroy(layer2);
 			Destroy(gameObject);
 			break;
 		case 1:
@@ -33,7 +37,6 @@ public class MusicMgr : MonoBehaviour {
 		case 2:
 			StartCoroutine(GameplayMusic());
 			bloom = GameObject.FindWithTag("GameMgr").GetComponent("Bloom") as Bloom;
-			Debug.Log (bloom);
 			break;
 		case 3:
 			StartCoroutine(ResultsMusic());

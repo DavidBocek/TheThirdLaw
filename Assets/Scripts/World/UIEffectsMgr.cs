@@ -23,14 +23,13 @@ public class UIEffectsMgr : MonoBehaviour {
 		isBeingTagged = true;
 		Rigidbody2D rb = health.gameObject.GetComponent<Rigidbody2D>();
 		if (!isSlowing){
-		AudioSource.PlayClipAtPoint(slowTimeHitClip, proj.transform.position, 1f);
+			AudioSource.PlayClipAtPoint(slowTimeHitClip, proj.transform.position, 1f);
 			isSlowing = true;
 			for (float t=0; t<=1f; t+=Time.unscaledDeltaTime){
 				rb.velocity = Vector3.zero;
-				Time.timeScale = Mathf.Lerp(1f,.2f,t);
+				Time.timeScale = Mathf.Lerp(1f, .2f, t);
 				yield return null;
 			}
-			Time.timeScale = .2f;
 			Time.timeScale = 1f;
 			isSlowing = false;
 		} else {

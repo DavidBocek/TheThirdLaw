@@ -1945,7 +1945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f65ee27c86c9a8499514ce2f620b4d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsUntilEnd: 121
+  secondsUntilEnd: 180
   timerText: {fileID: 619444904}
 --- !u!4 &1521020004
 Transform:
@@ -1972,7 +1972,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Asteroid: {fileID: 138078, guid: 33c8a561a82ecf547a80b975d031494f, type: 2}
   timeInBetween: 5
-  speedUpFactor: .899999976
+  speedUpFactor: .875
   asteroidSpeed: 10
 --- !u!1001 &1522643070
 Prefab:
