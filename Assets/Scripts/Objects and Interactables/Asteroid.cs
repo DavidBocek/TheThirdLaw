@@ -9,7 +9,7 @@ public class Asteroid : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-		transform.Translate(Time.fixedDeltaTime * vel);
+		transform.Translate(Time.fixedDeltaTime * vel, Space.World);
 		pictureTrans.Rotate(Vector3.forward, myRollAngle);
 	}
 
