@@ -36,15 +36,18 @@ public class Projectile : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D coll){
-		//ricochet logic
-		Vector2 normal = Vector2.zero;
-		foreach (ContactPoint2D contact in coll.contacts){
-			normal += contact.normal;
-			Debug.DrawRay(contact.point, contact.normal, Color.red);
+		//don't ricochet on yourself
+		if (coll.collider.GetComponent<Projectile>() != this){
+			//ricochet logic
+			Vector2 normal = Vector2.zero;
+			foreach (ContactPoint2D contact in coll.contacts){
+				normal += contact.normal;
+				Debug.DrawRay(contact.point, contact.normal, Color.red);
+			}
+			normal /= coll.contacts.Length;
+			Vector3 newVel = Vector3.Reflect(curVel.normalized, normal);
+			rb.velocity = speed * (Vector2) newVel;
 		}
-		normal /= coll.contacts.Length;
-		Vector3 newVel = Vector3.Reflect(curVel.normalized, normal);
-		rb.velocity = speed * (Vector2) newVel;
 
 
 		//destroy logic
