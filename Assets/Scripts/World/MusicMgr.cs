@@ -13,6 +13,8 @@ public class MusicMgr : MonoBehaviour {
 	[HideInInspector]
 	public int pulseColorIndex = 0;
 
+	private int lastLevel = 0;
+
 	private Bloom bloom;
 
 	void Awake(){
@@ -25,21 +27,27 @@ public class MusicMgr : MonoBehaviour {
 		//levelIndex: 0 => main title; 1 => ship selection; 2 => gameplay; 3 => results
 		switch(levelIndex){
 		case 0:
-			Destroy(intro);
-			Destroy(introLoop);
-			Destroy(layer1);
-			Destroy(layer2);
-			Destroy(gameObject);
+			if (lastLevel == 3){
+				Destroy(intro.gameObject);
+				Destroy(introLoop.gameObject);
+				Destroy(layer1.gameObject);
+				Destroy(layer2.gameObject);
+				Destroy(gameObject);
+			}
+			lastLevel = 0;
 			break;
 		case 1:
 			//just continue from main menu music
+			lastLevel = 1;
 			break;
 		case 2:
 			StartCoroutine(GameplayMusic());
 			bloom = GameObject.FindWithTag("GameMgr").GetComponent("Bloom") as Bloom;
+			lastLevel = 2;
 			break;
 		case 3:
 			StartCoroutine(ResultsMusic());
+			lastLevel = 3;
 			break;
 		}
 	}

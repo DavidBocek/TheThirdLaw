@@ -54,6 +54,12 @@ public class GameMgr : MonoBehaviour {
 		}
 		StartCoroutine(EndGameEffects());
 	}
+
+	void Update(){
+		if (Input.GetKeyDown(KeyCode.Escape)){
+			EndGame();
+		}
+	}
 	
 	private IEnumerator StartGameEffects(){
 		Time.timeScale = 0f;
@@ -90,8 +96,8 @@ public class GameMgr : MonoBehaviour {
 		}
 		Time.timeScale = 1f;
 		yield return new WaitForSeconds(1f);
-		c.a = 0f;
-		screen.color = c;
 		Application.LoadLevel(3);	//results screen
+		//c.a = 0f;
+		//screen.color = c;
 	}
 }

@@ -21,7 +21,7 @@ public class TimeMgr : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (gameEnded || secondsUntilEnd < 0) return;
-		curTimer -= Time.deltaTime;
+		curTimer -= Time.unscaledDeltaTime;
 		timerText.text = "TIME: "+(int)curTimer;
 		if(curTimer < 31 && curTimer > 30)
 		{
@@ -44,6 +44,6 @@ public class TimeMgr : MonoBehaviour {
 	{
 		isRaining = true;
 		gameObject.GetComponent<Asteroids>().StartSpawningAsteroids();
-		yield return new WaitForSeconds(2);
+		yield return null;
 	}
 }
