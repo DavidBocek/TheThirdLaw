@@ -10,7 +10,7 @@ public static class PersistantData {
 	public static Color Yellow = Color.yellow;
 	public static Color Green = Color.green;
 	public static Color Purple = new Color(.5f, 0f, .6f, 1f);
-	public static Color Pink = new Color(1f, 0f, 1f, 1f);
+	public static Color Pink = Color.magenta;
 	#endregion
 
 	public static Color[] colors = {Orange, Red, Yellow, Green, Purple, Pink};

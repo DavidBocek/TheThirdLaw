@@ -9,7 +9,7 @@ public class MusicMgr : MonoBehaviour {
 	public float maxMusicVolume;
 
 	private int[] colorTimings;	//array of sample locations to pulse color on
-	public Color[] pulseColors = {Color.red, Color.blue, Color.green, Color.magenta, Color.cyan, PersistantData.Orange, PersistantData.Pink, Color.yellow};
+	public Color[] pulseColors = {Color.red, new Color(.5f,.5f,.8f), Color.green, Color.magenta, Color.cyan, PersistantData.Orange, new Color(1f,.75f, .75f), Color.yellow};
 	[HideInInspector]
 	public int pulseColorIndex = 0;
 
