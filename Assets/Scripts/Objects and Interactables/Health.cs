@@ -61,8 +61,14 @@ public class Health : MonoBehaviour {
 		isDead = false;
 		GetComponent<DirectionForceMove>().thrustEmitter.enableEmission = true;
 		GetComponent<DirectionForceMove>().thrustEmitter.GetComponent<TrailRenderer>().enabled = true;
-		foreach (Collider coll in GetComponentsInChildren<Collider>(true)){
+		foreach (CircleCollider2D coll in GetComponentsInChildren<CircleCollider2D>(true)){
 			coll.enabled = true;
+		}
+		foreach (SpriteRenderer sr in GetComponentsInChildren<SpriteRenderer>()){
+			Color initialColor = sr.color;
+			Color c = initialColor;
+			c.a = 1f;
+			sr.color = c;
 		}
 		for (int i=0; i<6; i++){
 			foreach (SpriteRenderer sr in GetComponentsInChildren<SpriteRenderer>(true)){
