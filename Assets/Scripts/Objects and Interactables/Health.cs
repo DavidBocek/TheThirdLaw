@@ -44,9 +44,12 @@ public class Health : MonoBehaviour {
 		GetComponent<DirectionForceMove>().thrustEmitter.GetComponent<TrailRenderer>().enabled = false;
 		AudioSource.PlayClipAtPoint(deathClip, transform.position);
 		foreach (SpriteRenderer sr in GetComponentsInChildren<SpriteRenderer>()){
-			sr.enabled = false;
+			Color initialColor = sr.color;
+			Color c = initialColor;
+			c.a = .25f;
+			sr.color = c;
 		}
-		foreach (Collider coll in GetComponentsInChildren<Collider>()){
+		foreach (CircleCollider2D coll in GetComponentsInChildren<CircleCollider2D>()){
 			coll.enabled = false;
 		}
 		yield return new WaitForSeconds(respawnTime);
