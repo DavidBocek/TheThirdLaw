@@ -3081,22 +3081,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 19859352, guid: 148ab20cc9e75a047a774ee373bb6c81, type: 2}
-      propertyPath: CollisionModule.plane0
-      value: 
-      objectReference: {fileID: 894772894}
-    - target: {fileID: 19859352, guid: 148ab20cc9e75a047a774ee373bb6c81, type: 2}
-      propertyPath: CollisionModule.plane1
-      value: 
-      objectReference: {fileID: 1855733638}
-    - target: {fileID: 19859352, guid: 148ab20cc9e75a047a774ee373bb6c81, type: 2}
-      propertyPath: CollisionModule.plane2
-      value: 
-      objectReference: {fileID: 1610039920}
-    - target: {fileID: 19859352, guid: 148ab20cc9e75a047a774ee373bb6c81, type: 2}
-      propertyPath: CollisionModule.plane3
-      value: 
-      objectReference: {fileID: 72434790}
     - target: {fileID: 125966, guid: 148ab20cc9e75a047a774ee373bb6c81, type: 2}
       propertyPath: m_IsActive
       value: 0
