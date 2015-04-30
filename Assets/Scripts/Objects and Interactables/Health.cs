@@ -28,7 +28,7 @@ public class Health : MonoBehaviour {
 		SpriteRenderer r = GetComponentInChildren<SpriteRenderer>();
 		Color initialColor = r.color;
 		Color c = initialColor;
-		c.a = 0f;
+		c.a = .25f;
 		for (float t=0f; t<=1f; t+=Time.unscaledDeltaTime){
 			r.color = Color.Lerp(initialColor, c, t);
 			yield return null;
@@ -38,6 +38,7 @@ public class Health : MonoBehaviour {
 
 	private IEnumerator Hit(){
 		isDead = true;
+		isInvulnerable = true;
 		deathEmitter.Play(true);
 		GetComponent<DirectionForceMove>().thrustEmitter.enableEmission = false;
 		GetComponent<DirectionForceMove>().thrustEmitter.GetComponent<TrailRenderer>().enabled = false;
@@ -55,7 +56,6 @@ public class Health : MonoBehaviour {
 
 	private IEnumerator Respawn(){
 		isDead = false;
-		isInvulnerable = true;
 		GetComponent<DirectionForceMove>().thrustEmitter.enableEmission = true;
 		GetComponent<DirectionForceMove>().thrustEmitter.GetComponent<TrailRenderer>().enabled = true;
 		foreach (Collider coll in GetComponentsInChildren<Collider>(true)){

@@ -786,7 +786,7 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     type: 11
-    radius: 30
+    radius: 20
     angle: 25
     length: 5
     boxX: 1
@@ -839,7 +839,7 @@ ParticleSystem:
     time0: 0
     time1: .25
     time2: .5
-    time3: .75
+    time3: .5
     m_BurstCount: 4
   SizeModule:
     enabled: 0
@@ -3721,7 +3721,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     startSpeed:
-      scalar: -5
+      scalar: -7.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4769,7 +4769,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     startSpeed:
-      scalar: -2
+      scalar: -2.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4982,7 +4982,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 10
+      scalar: 20
       maxCurve:
         serializedVersion: 2
         m_Curve:

@@ -18,6 +18,7 @@ public class ScoreboardMgr : MonoBehaviour {
 		foreach (Text t in scoresTexts){
 			t.gameObject.SetActive(false);
 		}
+		winningPointValue = 5 + 5*(scoresTexts.Length-2);
 	}
 
 	public void Initialize(int playerNum1, int playerNum2, int playerNum3 = -1, int playerNum4 = -1){

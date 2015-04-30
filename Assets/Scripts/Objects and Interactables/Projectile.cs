@@ -48,6 +48,9 @@ public class Projectile : MonoBehaviour {
 			}
 			normal /= coll.contacts.Length;
 			Vector3 newVel = Vector3.Reflect(curVel.normalized, normal);
+			if (newVel.sqrMagnitude <= .05f){
+				newVel = normal;
+			}
 			rb.velocity = speed * (Vector2) newVel;
 		}
 
