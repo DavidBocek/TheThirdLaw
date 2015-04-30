@@ -83,7 +83,7 @@ InputManager:
     snap: 1
     invert: 1
     type: 2
-    axis: 1
+    axis: 4
     joyNum: 1
   - serializedVersion: 3
     m_Name: Player1-VerticalJoy
@@ -99,7 +99,7 @@ InputManager:
     snap: 0
     invert: 1
     type: 2
-    axis: 1
+    axis: 4
     joyNum: 2
   - serializedVersion: 3
     m_Name: Player0-Fire1
@@ -227,7 +227,7 @@ InputManager:
     snap: 0
     invert: 1
     type: 2
-    axis: 1
+    axis: 4
     joyNum: 3
   - serializedVersion: 3
     m_Name: Player2-Fire1
@@ -307,7 +307,7 @@ InputManager:
     snap: 0
     invert: 1
     type: 2
-    axis: 1
+    axis: 4
     joyNum: 4
   - serializedVersion: 3
     m_Name: Player3-Fire1

@@ -478,7 +478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50028a121ba3ae24298d29decf0a342a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winningPointValue: 5
+  winningPointValue: 20
   scoresTexts:
   - {fileID: 1324678470}
   - {fileID: 901658689}
