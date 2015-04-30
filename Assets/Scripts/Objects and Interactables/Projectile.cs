@@ -47,10 +47,11 @@ public class Projectile : MonoBehaviour {
 				Debug.DrawRay(contact.point, contact.normal, Color.red);
 			}
 			normal /= coll.contacts.Length;
+			Vector3 newVel = new Vector3();
 			if (curVel.sqrMagnitude <= .05f){
 				newVel = normal;
 			} else {
-				Vector3 newVel = Vector3.Reflect(curVel.normalized, normal);
+				newVel = Vector3.Reflect(curVel.normalized, normal);
 			}
 			rb.velocity = speed * (Vector2) newVel;
 		}

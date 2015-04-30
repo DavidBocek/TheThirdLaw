@@ -61,7 +61,7 @@ public class Health : MonoBehaviour {
 		isDead = false;
 		GetComponent<DirectionForceMove>().thrustEmitter.enableEmission = true;
 		GetComponent<DirectionForceMove>().thrustEmitter.GetComponent<TrailRenderer>().enabled = true;
-		foreach (Collider coll in GetComponentsInChildren<Collider>(true)){
+		foreach (CircleCollider2D coll in GetComponentsInChildren<CircleCollider2D>(true)){
 			coll.enabled = true;
 		}
 		for (int i=0; i<6; i++){
