@@ -7,7 +7,7 @@ public class Projectile : MonoBehaviour {
 
 	private int playerOwner;
 	private Vector2 curVel, curPos, lastPos;
-	private float speed = 20;
+	private float speed;
 
 	private Rigidbody2D rb;
 	private ScoreboardMgr scoreboard;
@@ -15,6 +15,7 @@ public class Projectile : MonoBehaviour {
 
 	void Start(){
 		lastPos = new Vector2(transform.position.x, transform.position.y);
+		speed = force;
 	}
 
 	//initialize here

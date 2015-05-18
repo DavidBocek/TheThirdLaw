@@ -291,7 +291,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PRESS <color=red>O</color> TO PLAY!
+  m_Text: "PRESS <color=magenta><b>\u2022</b></color> TO PLAY!"
 --- !u!222 &214708828
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -687,6 +687,18 @@ Prefab:
     - target: {fileID: 22435968, guid: af6cc2427e463f7478b26a7f1e3ea054, type: 2}
       propertyPath: m_Pivot.y
       value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22480708, guid: af6cc2427e463f7478b26a7f1e3ea054, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 22416198, guid: af6cc2427e463f7478b26a7f1e3ea054, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 22453836, guid: af6cc2427e463f7478b26a7f1e3ea054, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: af6cc2427e463f7478b26a7f1e3ea054, type: 2}

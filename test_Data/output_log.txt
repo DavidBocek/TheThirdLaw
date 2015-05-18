@@ -14,44 +14,10 @@ Platform assembly: C:\Users\David\Documents\TheThirdLaw\test_Data\Managed\Assemb
 Loading C:\Users\David\Documents\TheThirdLaw\test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\David\Documents\TheThirdLaw\test_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\David\Documents\TheThirdLaw\test_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.036 seconds
+- Completed reload, in  0.037 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 Platform assembly: C:\Users\David\Documents\TheThirdLaw\test_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\David\Documents\TheThirdLaw\test_Data\Managed\System.dll (this message is harmless)
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 2.259346 ms
-
-Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 369.
-Total: 0.127922 ms (FindLiveObjects: 0.013195 ms CreateObjectMapping: 0.012462 ms MarkObjects: 0.098599 ms  DeleteObjects: 0.003298 ms)
-
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.418954 ms
-Null
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-
-Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 800.
-Total: 0.341247 ms (FindLiveObjects: 0.060478 ms CreateObjectMapping: 0.025291 ms MarkObjects: 0.246314 ms  DeleteObjects: 0.008796 ms)
-
-Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.988922 ms
-
-Unloading 238 unused Assets to reduce memory usage. Loaded Objects now: 493.
-Total: 0.254378 ms (FindLiveObjects: 0.023458 ms CreateObjectMapping: 0.024924 ms MarkObjects: 0.140384 ms  DeleteObjects: 0.065243 ms)
-
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.420786 ms
-
-Unloading 22 unused Assets to reduce memory usage. Loaded Objects now: 301.
-Total: 0.224688 ms (FindLiveObjects: 0.032988 ms CreateObjectMapping: 0.037386 ms MarkObjects: 0.140384 ms  DeleteObjects: 0.012828 ms)
-
-Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.308259 ms
-
-Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 420.
-Total: 0.176671 ms (FindLiveObjects: 0.014661 ms CreateObjectMapping: 0.012828 ms MarkObjects: 0.146249 ms  DeleteObjects: 0.002565 ms)
-

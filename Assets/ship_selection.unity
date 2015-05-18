@@ -1058,7 +1058,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PRESS <color=red>O</color> TO JOIN
+  m_Text: "PRESS <color=magenta><b>\u2022</b></color> TO JOIN"
 --- !u!222 &734937226
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1287,7 +1287,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PRESS <color=red>O</color> TO JOIN
+  m_Text: "PRESS <color=magenta><b>\u2022</b></color> TO JOIN"
 --- !u!222 &1013582912
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1536,7 +1536,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PRESS <color=red>O</color> TO JOIN
+  m_Text: "PRESS <color=magenta><b>\u2022</b></color> TO JOIN"
 --- !u!222 &1216398790
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2083,7 +2083,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PRESS <color=red>O</color> TO JOIN
+  m_Text: "PRESS <color=magenta><b>\u2022</b></color> TO JOIN"
 --- !u!222 &1882602635
 CanvasRenderer:
   m_ObjectHideFlags: 0
